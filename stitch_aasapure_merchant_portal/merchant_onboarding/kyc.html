@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KYC Upload</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex min-h-screen">
+
+<!-- Left -->
+<div class="w-1/3 bg-green-700 text-white p-10">
+<h1 class="text-5xl font-bold leading-tight">Complete Your KYC</h1>
+<p class="mt-6 text-lg">
+Upload identity and business verification documents.
+</p>
+</div>
+
+<!-- Right -->
+<div class="w-2/3 p-12">
+
+<p class="text-sm text-green-700 font-bold">STEP 02 OF 03</p>
+<h1 class="text-4xl font-bold mb-8">KYC & Documents</h1>
+
+<div class="grid grid-cols-2 gap-6">
+
+<input id="aadhaar" type="text" placeholder="Aadhaar Number"
+class="border p-4 rounded-lg">
+
+<input id="pan" type="text" placeholder="PAN Number"
+class="border p-4 rounded-lg">
+
+<input id="gst" type="text" placeholder="GST Number"
+class="border p-4 rounded-lg">
+
+<input id="license" type="text" placeholder="Business License Number"
+class="border p-4 rounded-lg">
+
+<div>
+<label class="block mb-2 font-semibold">Upload Aadhaar Card</label>
+<input id="aadhaarFile" type="file"
+class="border p-4 rounded-lg bg-white w-full">
+</div>
+
+<div>
+<label class="block mb-2 font-semibold">Upload PAN Card</label>
+<input id="panFile" type="file"
+class="border p-4 rounded-lg bg-white w-full">
+</div>
+
+</div>
+
+<button id="saveNext"
+class="mt-10 bg-green-700 text-white px-8 py-4 rounded-lg hover:bg-green-800">
+Save & Next
+</button>
+
+</div>
+</div>
+<script>
+document.getElementById("saveNext").addEventListener("click", async () => {
+
+ const data = {
+   aadhaar: document.getElementById("aadhaar").value.trim(),
+   pan: document.getElementById("pan").value.trim().toUpperCase(),
+   gst: document.getElementById("gst").value.trim(),
+   license: document.getElementById("license").value.trim(),
+   aadhaarFile: document.getElementById("aadhaarFile").value,
+   panFile: document.getElementById("panFile").value
+ };
+
+ // Validation
+ if (!data.aadhaar || !data.pan || !data.gst || !data.license) {
+   alert("Please fill all fields");
+   return;
+ }
+
+ // Aadhaar Validation
+ if (!/^[0-9]{12}$/.test(data.aadhaar)) {
+   alert("Aadhaar must be 12 digits");
+   return;
+ }
+
+ // PAN Validation
+ if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(data.pan)) {
+   alert("Enter valid PAN Number");
+   return;
+ }
+
+ // File Validation
+ if (!data.aadhaarFile || !data.panFile) {
+   alert("Please upload Aadhaar and PAN files");
+   return;
+ }
+
+ const res = await fetch("http://localhost:5000/api/kyc", {
+   method: "POST",
+   headers: {
+     "Content-Type": "application/json"
+   },
+   body: JSON.stringify(data)
+ });
+
+ const result = await res.json();
+
+ alert(result.message);
+
+ window.location.href = "settlement.html";
+
+});
+</script>
+</body>
+</html>

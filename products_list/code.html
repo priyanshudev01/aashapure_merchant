@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products | Asha Pure Merchant</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../shared/app.css" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#206223",
+        "primary-container": "#3a7b3a",
+        surface: "#f9f9f9",
+        "surface-container-low": "#f3f3f3",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed": "#cfe6f2",
+        "tertiary-fixed": "#ffd9e2",
+        "error-container": "#ffdad6"
+      },
+      fontFamily: {
+        headline: ["Manrope"],
+        body: ["Inter"]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body text-slate-900">
+<aside class="fixed left-0 top-0 flex h-full w-64 flex-col overflow-y-auto bg-[#f9f9f9] shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+  <div class="p-8">
+    <div class="font-headline text-2xl font-black text-primary">Asha Pure Merchant</div>
+    <div class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500" data-merchant-name>Merchant Name</div>
+  </div>
+  <nav class="flex-1 px-4 space-y-1">
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../merchant_dashboard/code.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+    <a class="flex items-center gap-3 rounded-r-full bg-stone-200 px-4 py-3 text-sm font-bold text-primary" href="../products_list/code.html"><span class="material-symbols-outlined">category</span>Products</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../inventory_management/code.html"><span class="material-symbols-outlined">inventory_2</span>Inventory</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../orders_management/code.html"><span class="material-symbols-outlined">shopping_cart</span>Orders</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../profile_settings/code.html"><span class="material-symbols-outlined">groups</span>Customers</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../notifications/code.html"><span class="material-symbols-outlined">payments</span>Transactions</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../states_errors/code.html"><span class="material-symbols-outlined">insights</span>Reports</a>
+  </nav>
+</aside>
+
+<header class="fixed left-64 right-0 top-0 z-30 flex items-center justify-between bg-[#f9f9f9]/90 px-8 py-4 backdrop-blur-xl">
+  <div>
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Catalog</p>
+    <h1 class="font-headline text-2xl font-extrabold">Products</h1>
+  </div>
+  <div class="flex items-center gap-4">
+    <a class="rounded-xl bg-primary px-5 py-3 text-sm font-bold text-white" href="../add_edit_product/code.html">Add Product</a>
+    <div class="text-right">
+      <div class="text-sm font-bold text-primary" data-user-name>Merchant Name</div>
+      <div class="app-status-badge" data-kyc-status data-status="not_started">KYC Pending</div>
+    </div>
+  </div>
+</header>
+
+<main class="ml-64 mt-24 p-8">
+  <section id="productSummary" class="grid grid-cols-1 gap-4 md:grid-cols-4"></section>
+
+  <section class="mt-8 rounded-3xl bg-white p-6 shadow-sm">
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="font-headline text-xl font-bold">Product Catalog</h2>
+        <p class="text-sm text-slate-500">Every row below comes from the seeded database and stays connected to inventory and orders.</p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <input id="productSearch" class="w-72 rounded-xl border-0 bg-surface-container-low px-4 py-3 text-sm" placeholder="Search name, SKU, or category" type="text"/>
+        <select id="categoryFilter" class="rounded-xl border-0 bg-surface-container-low px-4 py-3 text-sm">
+          <option value="all">All Categories</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-left">
+        <thead>
+          <tr class="border-b border-slate-200 text-[11px] uppercase tracking-[0.2em] text-slate-500">
+            <th class="pb-4">Product</th>
+            <th class="pb-4">Category</th>
+            <th class="pb-4">SKU</th>
+            <th class="pb-4 text-right">Price</th>
+            <th class="pb-4 text-right">Stock</th>
+            <th class="pb-4">Status</th>
+          </tr>
+        </thead>
+        <tbody id="productRows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="../shared/app.js"></script>
+<script>
+let products = [];
+
+function getStatusClasses(status) {
+  if (status === "Low Stock") {
+    return "bg-amber-100 text-amber-800";
+  }
+  if (status === "Out of Stock") {
+    return "bg-error-container text-red-700";
+  }
+  return "bg-green-100 text-green-700";
+}
+
+function renderSummary() {
+  const lowStockCount = products.filter((item) => Number(item.stockQuantity || item.quantity || 0) <= 30).length;
+  const activeCount = products.filter((item) => item.status === "Active").length;
+  const inventoryValue = products.reduce((sum, item) => sum + (Number(item.price || 0) * Number(item.stockQuantity || item.quantity || 0)), 0);
+  const categories = new Set(products.map((item) => item.category).filter(Boolean)).size;
+  const cards = [
+    { label: "Total Products", value: products.length, tone: "bg-white" },
+    { label: "Active Products", value: activeCount, tone: "bg-secondary-fixed" },
+    { label: "Low Stock Items", value: lowStockCount, tone: "bg-tertiary-fixed" },
+    { label: "Inventory Value", value: AppShell.formatCurrency(inventoryValue), tone: "bg-white", note: `${categories} categories` }
+  ];
+
+  document.getElementById("productSummary").innerHTML = cards.map((card) => `
+    <article class="${card.tone} rounded-3xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">${card.label}</p>
+      <p class="mt-4 font-headline text-3xl font-extrabold">${card.value}</p>
+      <p class="mt-2 text-xs text-slate-500">${card.note || "Database-backed data"}</p>
+    </article>
+  `).join("");
+}
+
+function renderCategoryOptions() {
+  const select = document.getElementById("categoryFilter");
+  const categories = [...new Set(products.map((item) => item.category).filter(Boolean))].sort();
+  select.innerHTML = `<option value="all">All Categories</option>${categories.map((category) => `<option value="${category}">${category}</option>`).join("")}`;
+}
+
+function renderProducts() {
+  const search = document.getElementById("productSearch").value.trim().toLowerCase();
+  const category = document.getElementById("categoryFilter").value;
+  const rows = products.filter((product) => {
+    const haystack = `${product.productName} ${product.sku} ${product.category} ${product.productType}`.toLowerCase();
+    const matchesSearch = !search || haystack.includes(search);
+    const matchesCategory = category === "all" || product.category === category;
+    return matchesSearch && matchesCategory;
+  });
+
+  const tbody = document.getElementById("productRows");
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="6">${AppShell.buildEmptyState("No matching products", "Try a different search term or category filter.", "inventory_2")}</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = rows.map((product) => {
+    const quantity = Number(product.stockQuantity || product.quantity || 0);
+    return `
+      <tr class="border-b border-slate-100">
+        <td class="py-4">
+          <div class="flex items-center gap-4">
+            <img alt="${product.productName}" class="h-12 w-12 rounded-2xl object-cover" src="${product.imageUrl || AppShell.getProductImage(product.productType)}"/>
+            <div>
+              <p class="text-sm font-bold">${product.productName || product.productType}</p>
+              <p class="text-xs text-slate-500">${product.description || product.productType || ""}</p>
+            </div>
+          </div>
+        </td>
+        <td class="py-4 text-sm">${product.category || "--"}</td>
+        <td class="py-4 text-sm font-semibold">${product.sku || "--"}</td>
+        <td class="py-4 text-right text-sm font-bold">${AppShell.formatCurrency(product.price)}</td>
+        <td class="py-4 text-right text-sm">${quantity}</td>
+        <td class="py-4 text-sm"><span class="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${getStatusClasses(product.status)}">${product.status || "Active"}</span></td>
+      </tr>
+    `;
+  }).join("");
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await AppShell.bootstrap();
+  const merchant = AppShell.getStoredMerchantProfile();
+
+  if (!merchant?.merchantId) {
+    window.location.href = "../merchant_onboarding/code.html";
+    return;
+  }
+
+  products = await AppShell.fetchJson(`/products?merchantId=${merchant.merchantId}`).catch(() => []);
+  renderSummary();
+  renderCategoryOptions();
+  renderProducts();
+
+  document.getElementById("productSearch").addEventListener("input", renderProducts);
+  document.getElementById("categoryFilter").addEventListener("change", renderProducts);
+});
+</script>
+</body>
+</html>

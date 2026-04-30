@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Management | The Tactile Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e8e8e8",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#b14b6f",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#2a6b2c",
+                      "secondary": "#4c616c",
+                      "secondary-fixed": "#cfe6f2",
+                      "on-surface-variant": "#40493d",
+                      "tertiary": "#923357",
+                      "surface-container-low": "#f3f3f3",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1a1c1c",
+                      "primary": "#206223",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#ffedf0",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#707a6c",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#f9f9f9",
+                      "surface-dim": "#dadada",
+                      "error": "#ba1a1a",
+                      "surface": "#f9f9f9",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary-fixed": "#002203",
+                      "on-secondary-fixed-variant": "#354a53",
+                      "inverse-on-surface": "#f1f1f1",
+                      "primary-fixed-dim": "#91d78a",
+                      "inverse-surface": "#2f3131",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#526772",
+                      "inverse-primary": "#91d78a",
+                      "surface-container": "#eeeeee",
+                      "on-tertiary-fixed": "#3f001c",
+                      "on-primary-fixed-variant": "#0c5216",
+                      "secondary-fixed-dim": "#b4cad6",
+                      "background": "#f9f9f9",
+                      "on-tertiary-fixed-variant": "#7f2448",
+                      "on-secondary-fixed": "#071e27",
+                      "primary-fixed": "#acf4a4",
+                      "tertiary-fixed": "#ffd9e2",
+                      "outline-variant": "#bfcaba",
+                      "on-surface": "#1a1c1c",
+                      "secondary-container": "#cfe6f2",
+                      "on-primary-container": "#cbffc2",
+                      "tertiary-fixed-dim": "#ffb1c7",
+                      "primary-container": "#3a7b3a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 h-screen w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-6">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500 mb-1">The Tactile Ledger</h1>
+<p class="text-xs font-medium text-stone-500 uppercase tracking-widest">Aasapure Merchant</p>
+</div>
+<div class="px-4 mb-6">
+<a href="../add_edit_product/code.html" class="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl font-bold shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>New Product</span>
+</a>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="../merchant_dashboard/code.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full group" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="../orders_management/code.html">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="../earnings_payouts/code.html">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-medium">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="../merchant_onboarding/kyc.html">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-medium">KYC Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="../settings/code.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-stone-500 hover:text-stone-800 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+<span>Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-stone-500 hover:text-error transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 z-30 flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl transition-all duration-300 ease-in-out">
+<div class="flex items-center gap-4 bg-stone-100 dark:bg-stone-900 px-4 py-2 rounded-full w-96 group focus-within:ring-2 ring-primary/20">
+<span class="material-symbols-outlined text-stone-400" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-stone-400" placeholder="Search inventory..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="p-2 text-stone-500 hover:bg-[#206223]/5 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-stone-500 hover:bg-[#206223]/5 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</div>
+<div class="h-8 w-px bg-stone-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-primary uppercase tracking-wider">Merchant Verified</p>
+<p class="text-sm font-semibold text-on-surface">Aasapure Dairy Farms</p>
+</div>
+<img alt="Merchant Profile Image" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary-container/20" data-alt="Professional portrait of a dairy merchant in a clean apron with a modern agricultural facility background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Wd0M4jjQmQvPrPYiBaZYnkYzb0SOaWY8rQI4qfo4vUdgIzH5bZujZOr78UjWKFhZCARsKzcUoBCRPE9e9RY1UYS2COKAWKTigQS_-olB2RXnm5Nn8CbOG5o8EDv1lV-Sc7H5N9jCfExc-t07HJzEzhAUDKC4zBNJGDufwU1i9xnQnTmll7vLIflzbCN1M7Nc1IGZdT_KV8-qudVpj6AWArpDhdTsqv1Mbgd2Mumc5McYdK-gNmBh2QSpgqt6OpiS-Q7tp2uQad0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 min-h-screen px-8 pb-12">
+<!-- Hero Metrics Header -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<nav class="flex items-center gap-2 text-xs font-semibold text-on-surface-variant uppercase tracking-widest mb-2">
+<span>Operations</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">Stock Management</span>
+</nav>
+<h2 class="text-3xl font-extrabold text-on-surface">Inventory Control</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-surface-container-highest transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+                    Export Report
+                </button>
+<button class="px-6 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="update">update</span>
+                    Daily Supply Update
+                </button>
+</div>
+</header>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-12 gap-6 mb-10">
+<!-- Total Value Card -->
+<div class="col-span-12 md:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-[24px_0_40px_rgba(26,28,28,0.06)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<p class="text-sm font-semibold text-on-surface-variant mb-4 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                    Total Inventory Value
+                </p>
+<h3 class="text-5xl font-extrabold text-on-surface mb-2 font-headline tracking-tight">₹4,82,950</h3>
+<div class="flex items-center gap-2 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-base" data-icon="trending_up">trending_up</span>
+<span>+12.4% from last month</span>
+</div>
+</div>
+<!-- Low Stock Card -->
+<div class="col-span-12 md:col-span-3 bg-error-container/30 rounded-xl p-6 border-l-4 border-error">
+<p class="text-sm font-bold text-on-error-container uppercase tracking-wider mb-6">Low Stock Alerts</p>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="text-4xl font-black text-error">08</span>
+<span class="text-sm font-medium text-on-error-container">SKUs below threshold</span>
+</div>
+<p class="text-xs text-on-error-container/70 leading-relaxed mb-4">Immediate restocking required for Fresh Cream &amp; Skimmed Milk batches.</p>
+<button class="text-error font-bold text-sm underline underline-offset-4 decoration-2">Review Alerts</button>
+</div>
+<!-- Shelf Life Card -->
+<div class="col-span-12 md:col-span-4 bg-tertiary-fixed rounded-xl p-6 relative">
+<p class="text-sm font-bold text-on-tertiary-fixed uppercase tracking-wider mb-6">Average Shelf Rotation</p>
+<div class="flex items-center gap-4">
+<div class="h-20 w-20 rounded-full border-4 border-tertiary border-r-transparent flex items-center justify-center">
+<span class="text-xl font-black text-on-tertiary-fixed">4.2</span>
+</div>
+<div>
+<p class="text-lg font-bold text-on-tertiary-fixed">Days</p>
+<p class="text-xs text-on-tertiary-fixed-variant leading-tight">Optimized turnover for perishables.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Inventory Management Section -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden mb-10">
+<div class="p-6 flex justify-between items-center bg-surface-container-high/50">
+<h4 class="text-lg font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="list_alt">list_alt</span>
+                    Stock Inventory Ledger
+                </h4>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-surface-container-lowest text-xs font-bold rounded-full text-on-surface-variant">Filter: All Products</span>
+<span class="px-3 py-1 bg-surface-container-lowest text-xs font-bold rounded-full text-on-surface-variant">Sort: Quantity (Low to High)</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-surface-container/30">
+<th class="px-8 py-4 text-left text-[10px] uppercase font-bold text-on-surface-variant tracking-[0.15em]">Product Details</th>
+<th class="px-8 py-4 text-left text-[10px] uppercase font-bold text-on-surface-variant tracking-[0.15em]">Category</th>
+<th class="px-8 py-4 text-right text-[10px] uppercase font-bold text-on-surface-variant tracking-[0.15em]">Available Qty</th>
+<th class="px-8 py-4 text-right text-[10px] uppercase font-bold text-on-surface-variant tracking-[0.15em]">Threshold</th>
+<th class="px-8 py-4 text-center text-[10px] uppercase font-bold text-on-surface-variant tracking-[0.15em]">Stock Status</th>
+<th class="px-8 py-4 text-right text-[10px] uppercase font-bold text-on-surface-variant tracking-[0.15em]">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container" id="inventory-table-body">
+<tr id="loading-row" class="hover:bg-surface-container-lowest transition-colors group">
+<td colspan="6" class="px-8 py-12 text-center">
+<div class="flex justify-center items-center gap-3">
+<div class="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+<span class="text-sm font-medium text-on-surface-variant">Loading products...</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 border-t border-surface-container flex justify-between items-center bg-surface-container-low/50">
+<p class="text-xs font-medium text-on-surface-variant">Showing 3 of 48 product categories</p>
+<div class="flex gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Batch Tracking & Operational Insights -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="md:col-span-2 space-y-6">
+<h4 class="text-xl font-bold text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="batch_prediction">batch_prediction</span>
+                    Active Batch Tracking
+                </h4>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full">
+<span class="material-symbols-outlined" data-icon="factory">factory</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Batch #B240-X1</p>
+<p class="text-xs text-on-surface-variant">Processing: Pasteurization Unit A</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">In Progress</p>
+<p class="text-[10px] text-on-surface-variant">Completion: 14:30 PM Today</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 shadow-sm border border-outline-variant/10 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Batch #B239-Z4</p>
+<p class="text-xs text-on-surface-variant">Shipped: Regional DC West</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-on-surface-variant">Delivered</p>
+<p class="text-[10px] text-on-surface-variant">24 Oct, 2023 • 09:15 AM</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="text-xl font-bold text-on-surface">Recent Activity</h4>
+<div class="bg-surface-container-high rounded-xl p-6 h-fit">
+<ul class="space-y-6">
+<li class="flex gap-4 relative">
+<div class="w-px h-full bg-outline absolute left-[7px] top-4"></div>
+<div class="w-[14px] h-[14px] rounded-full bg-primary mt-1 flex-shrink-0 z-10"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Stock Updated</p>
+<p class="text-xs text-on-surface-variant">Inventory manual adjust for Batch #B240</p>
+<span class="text-[10px] text-on-surface-variant/60 font-medium">10 mins ago</span>
+</div>
+</li>
+<li class="flex gap-4 relative">
+<div class="w-px h-full bg-outline absolute left-[7px] top-4"></div>
+<div class="w-[14px] h-[14px] rounded-full bg-error mt-1 flex-shrink-0 z-10"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">Threshold Alert</p>
+<p class="text-xs text-on-surface-variant">Malai Paneer dropped below 150 units</p>
+<span class="text-[10px] text-on-surface-variant/60 font-medium">1 hour ago</span>
+</div>
+</li>
+<li class="flex gap-4">
+<div class="w-[14px] h-[14px] rounded-full bg-on-surface-variant/30 mt-1 flex-shrink-0"></div>
+<div>
+<p class="text-sm font-bold text-on-surface">New SKU Added</p>
+<p class="text-xs text-on-surface-variant">Buffalo Ghee (1kg) registered</p>
+<span class="text-[10px] text-on-surface-variant/60 font-medium">Yesterday</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Action (Contextual) -->
+<a href="../add_edit_product/code.html" class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-90 transition-all group overflow-hidden">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-90 transition-transform" data-icon="add">add</span>
+</a>
+
+<script>
+// Fetch products from MongoDB API
+async function fetchAndPopulateProducts() {
+  const tableBody = document.getElementById('inventory-table-body');
+  const loadingRow = document.getElementById('loading-row');
+  
+  try {
+    const response = await fetch('http://localhost:5000/api/products');
+    
+    if (!response.ok) {
+      throw new Error(`API error: ${response.statusText}`);
+    }
+    
+    const products = await response.json();
+    
+    // Remove loading row
+    if (loadingRow) {
+      loadingRow.remove();
+    }
+    
+    // If no products, show the empty state
+    if (!products || products.length === 0) {
+      tableBody.innerHTML = `
+        <tr class="hover:bg-surface-container-lowest transition-colors">
+          <td colspan="6" class="px-8 py-12 text-center">
+            <div class="flex flex-col items-center justify-center gap-3">
+              <span class="material-symbols-outlined text-5xl text-on-surface-variant/30">inbox</span>
+              <p class="text-sm font-semibold text-on-surface-variant">No Products Added</p>
+              <p class="text-xs text-on-surface-variant/70">Start by adding your first product to the inventory.</p>
+            </div>
+          </td>
+        </tr>
+      `;
+      return;
+    }
+    
+    // Populate table with products
+    tableBody.innerHTML = products.map(product => {
+      const quantity = parseInt(product.quantity) || 0;
+      const isLowStock = quantity < 20;
+      const statusBadgeClass = isLowStock 
+        ? 'bg-error-container text-on-error-container' 
+        : 'bg-primary-fixed text-on-primary-fixed-variant';
+      const statusText = isLowStock ? 'Low Stock Warning' : 'Optimal';
+      const quantityClass = isLowStock ? 'text-error' : '';
+      
+      return `
+        <tr class="hover:bg-surface-container-lowest transition-colors group">
+          <td class="px-8 py-5">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+                <img alt="${product.productType}" class="w-full h-full object-cover" src="https://via.placeholder.com/50?text=${encodeURIComponent(product.productType.substring(0, 3))}" />
+              </div>
+              <div>
+                <p class="font-bold text-on-surface">${product.productType}</p>
+                <p class="text-xs text-on-surface-variant">SKU: ${product._id.toString().substring(0, 12)}</p>
+              </div>
+            </div>
+          </td>
+          <td class="px-8 py-5 text-sm font-medium text-on-surface-variant">${product.productType}</td>
+          <td class="px-8 py-5 text-right font-headline font-bold ${quantityClass}">${quantity} Units</td>
+          <td class="px-8 py-5 text-right font-medium text-on-surface-variant">₹${product.price} / ${product.priceUnit || 'Unit'}</td>
+          <td class="px-8 py-5 text-center">
+            <span class="px-3 py-1 ${statusBadgeClass} text-[10px] font-black uppercase rounded-full tracking-wider">${statusText}</span>
+          </td>
+          <td class="px-8 py-5 text-right">
+            <button class="p-2 hover:bg-surface-container rounded-lg transition-all" title="Quantity: ${quantity}, Fat: ${product.fatPercentage}%, Supply: ${product.supplyTime}">
+              <span class="material-symbols-outlined text-on-surface-variant" data-icon="edit_note">edit_note</span>
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+    
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    
+    // Remove loading row
+    if (loadingRow) {
+      loadingRow.remove();
+    }
+    
+    // Show error state
+    tableBody.innerHTML = `
+      <tr class="hover:bg-surface-container-lowest transition-colors">
+        <td colspan="6" class="px-8 py-12 text-center">
+          <div class="flex flex-col items-center justify-center gap-3">
+            <span class="material-symbols-outlined text-5xl text-error/30">error_outline</span>
+            <p class="text-sm font-semibold text-error">Failed to Load Products</p>
+            <p class="text-xs text-on-surface-variant/70">Unable to connect to the server. Please try again.</p>
+            <button onclick="fetchAndPopulateProducts()" class="mt-4 px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-bold hover:opacity-90 transition-all">
+              Retry
+            </button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }
+}
+
+// Fetch products on page load
+document.addEventListener('DOMContentLoaded', fetchAndPopulateProducts);
+</script>
+</body></html>

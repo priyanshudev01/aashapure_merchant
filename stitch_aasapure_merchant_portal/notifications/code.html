@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications | The Tactile Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#b14b6f",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#2a6b2c",
+                    "secondary": "#4c616c",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-surface-variant": "#40493d",
+                    "tertiary": "#923357",
+                    "surface-container-low": "#f3f3f3",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "primary": "#206223",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ffedf0",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#707a6c",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed": "#002203",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary-fixed-dim": "#91d78a",
+                    "inverse-surface": "#2f3131",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#526772",
+                    "inverse-primary": "#91d78a",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#3f001c",
+                    "on-primary-fixed-variant": "#0c5216",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "background": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#7f2448",
+                    "on-secondary-fixed": "#071e27",
+                    "primary-fixed": "#acf4a4",
+                    "tertiary-fixed": "#ffd9e2",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#1a1c1c",
+                    "secondary-container": "#cfe6f2",
+                    "on-primary-container": "#cbffc2",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "primary-container": "#3a7b3a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 h-screen w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="px-6 py-8">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500 mb-2">The Tactile Ledger</h1>
+<p class="text-sm font-medium text-stone-500 font-inter">Aasapure Merchant</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Inventory -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                Inventory
+            </a>
+<!-- Orders -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+                Orders
+            </a>
+<!-- Earnings -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                Earnings
+            </a>
+<!-- KYC Documents -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                KYC Documents
+            </a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="px-4 py-6 mt-auto space-y-1">
+<button class="w-full flex items-center justify-center gap-2 mb-6 py-3 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Product
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-stone-600 dark:text-stone-400 hover:text-[#206223] transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Help Center
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-stone-600 dark:text-stone-400 hover:text-error transition-colors font-inter text-sm font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl bg-stone-100 dark:bg-stone-900 shadow-sm dark:shadow-none">
+<div class="flex items-center bg-surface-container rounded-full px-4 py-2 w-96">
+<span class="material-symbols-outlined text-stone-500 mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-inter" placeholder="Search orders, transactions..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-stone-500">
+<button class="relative p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-all text-[#206223] dark:text-green-400 border-b-2 border-[#206223]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</div>
+<div class="h-8 w-px bg-stone-200"></div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold uppercase tracking-wider">Merchant Verified</span>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary-container" data-alt="professional portrait of a middle-aged merchant with a warm smile in a clean office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm1aQh0_4SlX4QyasHoApxG52a4nHGXX5b0_1PjHD8HbSUzTVGN9fbKQg_MSE2UUrrnx1qKoOBSkoLxrNZ0U_V5xJzynxIOapgruizt8YCvfTaFhhQDRDB_d1RZ6sJdF0uVr5FPJpKS5JB3t3Mqfu7jh4RmZHjv6gBfRmRCxoh7qIfqlnokzb2wGUtY97RsEtH1v2hLwX6UAZvfs11VADZacK4Ej1T_qqkMia6EgISqSwKWyRHKpR1dKIACfh6HIYgQs7aIrXSODY"/>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<div class="max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-10">
+<div class="space-y-1">
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight font-headline">Notification Center</h2>
+<p class="text-on-surface-variant font-inter">Manage your merchant activity and platform alerts.</p>
+</div>
+<button class="flex items-center gap-2 px-5 py-2.5 bg-surface-container-high hover:bg-surface-container-highest text-primary font-semibold rounded-xl transition-all font-inter text-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="done_all">done_all</span>
+                    Mark all as read
+                </button>
+</div>
+<!-- Notification Feed: Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Sidebar Filters: Tonal Layering -->
+<div class="lg:col-span-3 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<p class="text-[10px] font-bold uppercase tracking-[0.15em] text-on-surface-variant font-label">Categories</p>
+<div class="space-y-1">
+<button class="w-full flex justify-between items-center px-3 py-2 bg-surface-container-lowest text-primary font-bold rounded-lg shadow-sm">
+<span class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-[20px]" data-icon="all_inbox">all_inbox</span> All</span>
+<span class="text-xs bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full">12</span>
+</button>
+<button class="w-full flex justify-between items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span> New Orders</span>
+<span class="text-xs text-on-surface-variant/60 font-medium">4</span>
+</button>
+<button class="w-full flex justify-between items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-[20px]" data-icon="warning">warning</span> Stock Alerts</span>
+<span class="text-xs text-on-surface-variant/60 font-medium">2</span>
+</button>
+<button class="w-full flex justify-between items-center px-3 py-2 text-on-surface-variant hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="flex items-center gap-3 text-sm"><span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span> Payments</span>
+<span class="text-xs text-on-surface-variant/60 font-medium">5</span>
+</button>
+</div>
+</div>
+<!-- Insight Card: Glassmorphism effect -->
+<div class="relative overflow-hidden rounded-xl bg-primary-container p-6 text-on-primary-container shadow-lg">
+<div class="relative z-10">
+<p class="text-xs font-bold uppercase mb-2 opacity-80">Quick Tip</p>
+<p class="font-headline font-bold text-lg leading-tight mb-4">Stock levels are 20% lower than last Tuesday.</p>
+<button class="text-sm font-bold underline decoration-2 underline-offset-4">Restock Inventory</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[100px]" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Main Feed -->
+<div class="lg:col-span-9 space-y-4">
+<!-- Date Separator -->
+<div class="flex items-center gap-4 py-2">
+<span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant font-label">Today, 24 Oct 2023</span>
+<div class="flex-1 h-px bg-surface-container-highest"></div>
+</div>
+<!-- Notification Item: New Order -->
+<div class="group flex items-start gap-5 p-6 bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(26,28,28,0.04)] hover:shadow-[0_8px_32px_rgba(26,28,28,0.08)] transition-all cursor-pointer border-l-4 border-primary">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-base group-hover:text-primary transition-colors">New Order #88294 Received</h3>
+<span class="text-[11px] font-medium text-on-surface-variant font-inter">10:45 AM</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Merchant partner 'Green Dairy Farms' has placed a bulk order for 500L Toned Milk. Action required: Confirm shipment date.</p>
+<div class="flex gap-3 mt-4">
+<button class="px-4 py-1.5 bg-primary text-on-primary text-xs font-bold rounded-lg hover:opacity-90 transition-opacity">Review Order</button>
+<button class="px-4 py-1.5 text-on-surface-variant text-xs font-bold hover:bg-surface-container transition-colors rounded-lg">Dismiss</button>
+</div>
+</div>
+</div>
+<!-- Notification Item: Payment -->
+<div class="group flex items-start gap-5 p-6 bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(26,28,28,0.04)] hover:shadow-[0_8px_32px_rgba(26,28,28,0.08)] transition-all cursor-pointer border-l-4 border-tertiary">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-base group-hover:text-tertiary transition-colors">Payout Successful</h3>
+<span class="text-[11px] font-medium text-on-surface-variant font-inter">09:12 AM</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Your weekly settlement of <span class="font-bold text-on-surface">₹1,42,800</span> has been credited to your linked bank account ending in **4492.</p>
+</div>
+</div>
+<!-- Notification Item: Stock Alert -->
+<div class="group flex items-start gap-5 p-6 bg-surface-container-lowest rounded-xl shadow-[0_4px_24px_rgba(26,28,28,0.04)] hover:shadow-[0_8px_32px_rgba(26,28,28,0.08)] transition-all cursor-pointer border-l-4 border-error">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined" data-icon="inventory">inventory</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-base group-hover:text-error transition-colors">Low Stock Alert: Desi Ghee (1kg)</h3>
+<span class="text-[11px] font-medium text-on-surface-variant font-inter">08:30 AM</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Inventory for 'Aasapure Premium Desi Ghee' is below the threshold (15 units remaining). Replenish to avoid stockouts.</p>
+</div>
+</div>
+<!-- Date Separator -->
+<div class="flex items-center gap-4 py-2 mt-8">
+<span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant font-label">Yesterday, 23 Oct 2023</span>
+<div class="flex-1 h-px bg-surface-container-highest"></div>
+</div>
+<!-- Notification Item: Approval Status (Inactive Style) -->
+<div class="group flex items-start gap-5 p-6 bg-surface-container-low/50 rounded-xl transition-all cursor-pointer opacity-80 hover:opacity-100">
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-base">KYC Document Verified</h3>
+<span class="text-[11px] font-medium text-on-surface-variant font-inter">06:20 PM</span>
+</div>
+<p class="text-sm text-on-surface-variant leading-relaxed">Your updated Trade License has been successfully verified by our compliance team. Your merchant status remains 'Active'.</p>
+</div>
+</div>
+<!-- Load More Action -->
+<div class="pt-8 flex justify-center">
+<button class="text-sm font-bold text-primary hover:underline underline-offset-8 transition-all">View older notifications</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

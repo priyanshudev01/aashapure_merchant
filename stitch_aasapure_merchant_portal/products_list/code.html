@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products List - The Tactile Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#e8e8e8",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#b14b6f",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#2a6b2c",
+                      "secondary": "#4c616c",
+                      "secondary-fixed": "#cfe6f2",
+                      "on-surface-variant": "#40493d",
+                      "tertiary": "#923357",
+                      "surface-container-low": "#f3f3f3",
+                      "error-container": "#ffdad6",
+                      "on-background": "#1a1c1c",
+                      "primary": "#206223",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-container": "#ffedf0",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-container-lowest": "#ffffff",
+                      "outline": "#707a6c",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#f9f9f9",
+                      "surface-dim": "#dadada",
+                      "error": "#ba1a1a",
+                      "surface": "#f9f9f9",
+                      "surface-variant": "#e2e2e2",
+                      "on-primary-fixed": "#002203",
+                      "on-secondary-fixed-variant": "#354a53",
+                      "inverse-on-surface": "#f1f1f1",
+                      "primary-fixed-dim": "#91d78a",
+                      "inverse-surface": "#2f3131",
+                      "on-error-container": "#93000a",
+                      "on-secondary-container": "#526772",
+                      "inverse-primary": "#91d78a",
+                      "surface-container": "#eeeeee",
+                      "on-tertiary-fixed": "#3f001c",
+                      "on-primary-fixed-variant": "#0c5216",
+                      "secondary-fixed-dim": "#b4cad6",
+                      "background": "#f9f9f9",
+                      "on-tertiary-fixed-variant": "#7f2448",
+                      "on-secondary-fixed": "#071e27",
+                      "primary-fixed": "#acf4a4",
+                      "tertiary-fixed": "#ffd9e2",
+                      "outline-variant": "#bfcaba",
+                      "on-surface": "#1a1c1c",
+                      "secondary-container": "#cfe6f2",
+                      "on-primary-container": "#cbffc2",
+                      "tertiary-fixed-dim": "#ffb1c7",
+                      "primary-container": "#3a7b3a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Manrope"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)] font-inter">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500 leading-none">The Tactile Ledger</h1>
+<p class="text-xs font-medium text-on-surface-variant mt-1">Aasapure Merchant</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm font-medium">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm font-medium">KYC Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6 space-y-1 bg-stone-100 dark:bg-stone-900/50">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm font-medium">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-error transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-64 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl z-50 flex justify-between items-center px-8 py-4 shadow-sm dark:shadow-none">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="w-full bg-surface-container-highest/50 border-none rounded-xl pl-12 pr-4 py-2.5 text-sm focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="Search products, SKUs, or categories..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-8">
+<div class="flex items-center gap-3">
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<div class="flex flex-col items-end">
+<span class="text-sm font-bold text-on-surface">Merchant Verified</span>
+<span class="text-[10px] uppercase tracking-wider text-on-surface-variant font-medium">Aasapure Official</span>
+</div>
+<img alt="Merchant Profile Image" class="w-10 h-10 rounded-full border-2 border-primary/20 object-cover" data-alt="professional headshot of a middle-aged merchant in a clean white shirt with a soft office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALC0KFDIH6tTFyVPlEmF67Ihe8cPAgXlHQ8z97hMFSkd5gG-HaGvXowBPNSiSNLpEAmVbbjcAe_-6BQfvpMm1kGAMbPQJ1sRSExyvmhQNH7gcUGT8lzNMprATvEg9YmowagWn9gcDB3tYGNwwFfs8c9H_VAPWddD1hUjtW7tnHx0FJRcFcSflZG0-UqJd1WlRqzVqhFRlP9J_jdXZmHWjUu2NggJs3QyzRaD0dSvgV3G1dntgGrNjCqeHFjH_BRDp2OOpq5DdfsTM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 min-h-screen px-8 pb-12">
+<!-- Header Section -->
+<section class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<nav class="flex items-center gap-2 text-xs font-medium text-on-surface-variant uppercase tracking-widest mb-2">
+<span>Inventory</span>
+<span class="material-symbols-outlined text-[10px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary">Products List</span>
+</nav>
+<h2 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight">Active Inventory</h2>
+<p class="text-on-surface-variant mt-2 max-w-lg">Manage your dairy and farm-fresh catalog. Real-time stock tracking and pricing management for your Aasapure outlet.</p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl font-bold text-sm shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                New Product
+            </button>
+</section>
+<!-- Stats Overview (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.06)] flex flex-col justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Total Products</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-primary">124</span>
+<span class="text-xs text-primary-container font-semibold">+4 this week</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.06)] flex flex-col justify-between border-l-4 border-tertiary">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Low Stock Alert</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-tertiary">08</span>
+<span class="text-xs text-on-surface-variant font-medium">Requires Restock</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.06)] flex flex-col justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Revenue Today</span>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-headline font-black text-on-surface">₹24,850</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container-lowest rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.06)] flex flex-col justify-between">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-4">Active Toggles</span>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-headline font-black text-on-surface">92%</span>
+<span class="text-xs text-on-surface-variant font-medium">System Health</span>
+</div>
+</div>
+</section>
+<!-- Filters and Table Container -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<div class="p-6 flex flex-wrap items-center justify-between gap-4 border-b border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="flex items-center bg-surface-container-highest/40 rounded-full px-4 py-2">
+<span class="text-xs font-bold text-on-surface-variant mr-3">CATEGORY:</span>
+<select class="bg-transparent border-none text-sm font-semibold text-primary focus:ring-0 cursor-pointer p-0 pr-8 uppercase tracking-wider">
+<option>All Products</option>
+<option>Fresh Milk</option>
+<option>Dairy Products</option>
+<option>Organic Ghee</option>
+<option>Farm Produce</option>
+</select>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-highest/40 text-on-surface-variant rounded-full text-xs font-bold hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                        More Filters
+                    </button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-on-surface-variant font-medium">Export as:</span>
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-colors">PDF</button>
+<button class="px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/5 rounded-lg transition-colors">EXCEL</button>
+</div>
+</div>
+<!-- Data Table -->
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/30">
+<th class="px-8 py-4 text-[10px] uppercase tracking-[0.15em] font-bold text-on-surface-variant">Product Name</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.15em] font-bold text-on-surface-variant">Category</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.15em] font-bold text-on-surface-variant text-right">Price</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.15em] font-bold text-on-surface-variant text-right">Stock</th>
+<th class="px-6 py-4 text-[10px] uppercase tracking-[0.15em] font-bold text-on-surface-variant text-center">Status</th>
+<th class="px-8 py-4 text-[10px] uppercase tracking-[0.15em] font-bold text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-lowest transition-all">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-white p-1 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md" data-alt="close up of glass bottle of fresh organic milk on a wooden table with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5gSRCuQtWIZP1_syDUaip6MGcJWm-rkuU1oIUWQK1Q4M3zW9_frh1zOHL4WfxGtUux9Rk3A-D6tcohQqEMRNWzh6I0vzOohQe9hTI3Ki3aIod7vmIEKbWjXj1aSsK56AT1YKnKMHjF7A7zv6J4PEHYpuMpFgaRjPbqoKo17Ri0cmiyDwL85i9_aHtLnYCNYV986AqpAd1_T1fR2Cjw0ydqSrNJnuK1f4HsQcymhmCW52PICmsMLC0B51vYNnHAfKhtrOJuGnv910"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Aasapure A2 Buffalo Milk</p>
+<p class="text-xs text-on-surface-variant">SKU: AAP-MIL-001</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container">Fresh Milk</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-bold text-on-surface">₹78.00</p>
+<p class="text-[10px] text-on-surface-variant">Per Litre</p>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-bold text-on-surface">450 L</p>
+<p class="text-[10px] text-primary font-bold">In Stock</p>
+</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center p-0.5 bg-primary-fixed rounded-full cursor-pointer hover:scale-105 transition-transform">
+<div class="w-10 h-5 flex items-center px-1">
+<div class="ml-auto w-3.5 h-3.5 rounded-full bg-primary shadow-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all" title="Edit">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error/10 rounded-lg transition-all" title="Delete">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-lowest transition-all">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-white p-1 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md" data-alt="artisanal golden ghee in a traditional glass jar with a rustic background and warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsNLBp29WPdgFmz3X1VRqDI779RZgB3mur4SrN1IoXodvTpnXfs3MEilfJgrhDP0oHv2VUzZuqCs4jMXq-3sW1FagUoUFnJJSO4BnCQB-EnfPa5ohtoLOKt2PURafSUpR5xyB0kZdfX2P7ZClTS1VIHuEt2B4_-s9Jy2PM-tln0U59IpZcV0HN9hfc5mK8HYy8GkU5bpne_a1hW_lQOBj8rwzcExDbeMuZo71xeFyVFevceTdZaz49BVmo95d_HvnzNouY6MFCW24"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Vedic Bilona Ghee</p>
+<p class="text-xs text-on-surface-variant">SKU: AAP-GHE-042</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container">Organic Ghee</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-bold text-on-surface">₹1,250.00</p>
+<p class="text-[10px] text-on-surface-variant">Per 500ml</p>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-bold text-on-surface">12 Units</p>
+<p class="text-[10px] text-tertiary font-bold">Low Stock</p>
+</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center p-0.5 bg-primary-fixed rounded-full cursor-pointer hover:scale-105 transition-transform">
+<div class="w-10 h-5 flex items-center px-1">
+<div class="ml-auto w-3.5 h-3.5 rounded-full bg-primary shadow-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-lowest transition-all">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-white p-1 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md" data-alt="blocks of fresh white paneer cottage cheese on a banana leaf with vibrant kitchen textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEsAOCTSg6hejRs9Q_8EcBFpeR6uRTA1mfvgOHdVVVgoLxMB5UyOfZZ4cI-pXoyUV_tfJTnGcjINoo5Fbc3AvUxSbZ6VeJt7pkFbJhFy_pHkcnTZN4_dVp1mYya-G66jvk4RU_A3qVUKEvOkchWr2bYydFZgUjIBPLvGnbqGW5qhnpxdAz3jGxRXZWkyE33QMKyia8vmDR7059dsOv94nBLrpXV9ocrbkwnyM4Mo1kPg7LkFXV2FsHo2L5jBeGh6cPrd2fIJkD75s"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Farm Fresh Paneer</p>
+<p class="text-xs text-on-surface-variant">SKU: AAP-PAN-009</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container">Dairy Products</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-bold text-on-surface">₹240.00</p>
+<p class="text-[10px] text-on-surface-variant">Per 500g</p>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-bold text-on-surface">Out of Stock</p>
+<p class="text-[10px] text-error font-bold">0 kg</p>
+</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center p-0.5 bg-surface-container-highest rounded-full cursor-pointer hover:scale-105 transition-transform">
+<div class="w-10 h-5 flex items-center px-1">
+<div class="w-3.5 h-3.5 rounded-full bg-outline shadow-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-lowest transition-all">
+<td class="px-8 py-5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-white p-1 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md" data-alt="bowl of thick creamy probiotic yogurt with small decorative mint leaves and light wooden spoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADrqOMiy-AE5GVvCc9vC9BRIYTj6VMtWIZUUY5ffCUZcoZdtjrvKqhAGlPduOrPx56phLh_cLWXl-TWHsvuUbyz_jKfteAJrrjJjDklWHGE6PFmuCQvoYmPFzIFrLZFV_5usRUT-tmV6aisWNCAF8WF3I15iUuP3xBn0jvcX12jEngfPwbQsLaRGYsiTcew8ivUXRzaPUm8vXz2aTQclfMNENbMIcJUdWBYJ5Ly9OycrvIDbvodXjvG2k2kRQUOOYbGA2L0PwFiUY"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Probiotic Curd (Dahi)</p>
+<p class="text-xs text-on-surface-variant">SKU: AAP-CUR-012</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-xs font-semibold px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container">Dairy Products</span>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-headline font-bold text-on-surface">₹45.00</p>
+<p class="text-[10px] text-on-surface-variant">Per 400g</p>
+</td>
+<td class="px-6 py-5 text-right">
+<p class="font-bold text-on-surface">85 Units</p>
+<p class="text-[10px] text-primary font-bold">In Stock</p>
+</td>
+<td class="px-6 py-5 text-center">
+<div class="inline-flex items-center p-0.5 bg-primary-fixed rounded-full cursor-pointer hover:scale-105 transition-transform">
+<div class="w-10 h-5 flex items-center px-1">
+<div class="ml-auto w-3.5 h-3.5 rounded-full bg-primary shadow-sm"></div>
+</div>
+</div>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 text-primary hover:bg-primary/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-error hover:bg-error/10 rounded-lg transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="px-8 py-6 flex items-center justify-between border-t border-outline-variant/10 bg-surface-container-low/50">
+<p class="text-xs font-medium text-on-surface-variant">Showing 1-10 of 124 products</p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary text-xs font-bold shadow-md">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-high text-xs font-bold transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-high text-xs font-bold transition-colors">3</button>
+<span class="text-xs text-on-surface-variant px-1">...</span>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container-high text-xs font-bold transition-colors">13</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Contextual Help / Insights -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-6 bg-tertiary-fixed rounded-xl flex items-start gap-4">
+<div class="p-3 bg-white/20 rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-fixed" data-icon="insights">insights</span>
+</div>
+<div>
+<h4 class="font-bold text-on-tertiary-fixed mb-1">Pricing Strategy Tip</h4>
+<p class="text-sm text-on-tertiary-fixed-variant leading-relaxed">Based on last week's sales, Cow Milk sales peak between 6 AM and 8 AM. Ensure stock is updated before 5 AM for maximum visibility.</p>
+</div>
+</div>
+<div class="p-6 bg-primary-fixed rounded-xl flex items-start gap-4">
+<div class="p-3 bg-white/20 rounded-lg">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-bold text-on-primary-fixed mb-1">Smart Stocking</h4>
+<p class="text-sm text-on-primary-fixed-variant leading-relaxed">Automated inventory alerts are active. You will receive a WhatsApp notification when Ghee stock drops below 10 units.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB for Quick Actions (Suppressed on this view as per focus rule, but kept for demo of task fulfillment if needed) -->
+<!-- Not rendered based on Shell Visibility & Relevance (THE FILTER) rule - suppression on Task-Focused sub-pages -->
+</body></html>

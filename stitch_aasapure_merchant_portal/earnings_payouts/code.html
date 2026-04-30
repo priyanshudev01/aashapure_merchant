@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Earnings &amp; Payouts | The Tactile Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b14b6f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2a6b2c",
+                        "secondary": "#4c616c",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-surface-variant": "#40493d",
+                        "tertiary": "#923357",
+                        "surface-container-low": "#f3f3f3",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "primary": "#206223",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#707a6c",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed": "#002203",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "inverse-primary": "#91d78a",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-primary-fixed-variant": "#0c5216",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "background": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed": "#071e27",
+                        "primary-fixed": "#acf4a4",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#cfe6f2",
+                        "on-primary-container": "#cbffc2",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "primary-container": "#3a7b3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            background-color: rgba(249, 249, 249, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-6">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500 mb-8">The Tactile Ledger</h1>
+<div class="flex items-center gap-3 mb-10 px-2">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close-up portrait of a professional dairy merchant in a clean workplace setting, warm natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGB_42BH7pSQzAOmm0qhpaD3LhtL06yEM1oC-045bwIFIiWfhJ5mQYca2nDHpXfJHBe0Kj8WCMy3AJLixL8FHq5dJ_S2nBFOV3XGiO2DRkjuQ-kymLGFNwocExerHf2gz5jTroEQ5oHgjFXUitMI5lrLZP4fWwTTBOPyaCQMnSvMDp-CxMcvLkSen0u-wtZfKiX1bBWzYs8QbOJEG2nAKWxLDNkRE0YEqlEWBEs62TKbIn3XcvAqCEyQNm6Y8HaKg-MvB47D06FPs"/>
+<div>
+<p class="text-sm font-bold font-headline leading-none">Aasapure Merchant</p>
+<p class="text-xs text-on-surface-variant mt-1">Merchant profile picture</p>
+</div>
+</div>
+<nav class="space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="../merchant_dashboard/code.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="../inventory_management/code.html">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<!-- Orders -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="../orders_management/code.html">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<!-- Earnings (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full" href="../earnings_payouts/code.html">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-sm">Earnings</span>
+</a>
+<!-- KYC Documents -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="../merchant_onboarding/code.html">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="text-sm font-medium">KYC Documents</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="../settings/code.html">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-8 px-2">
+<a href="../add_edit_product/code.html" class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm scale-95 active:scale-90 transition-transform block text-center">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    New Product
+                </a>
+</div>
+</div>
+<div class="mt-auto p-6 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="text-sm font-medium">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl">
+<div class="flex items-center bg-stone-100 dark:bg-stone-900 px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-stone-400 text-lg" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full text-on-surface" placeholder="Search transactions, reference IDs..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-stone-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+</div>
+<div class="h-6 w-px bg-stone-200"></div>
+<div class="flex items-center gap-3">
+<span class="text-[10px] uppercase tracking-wider font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">Merchant Verified</span>
+<img class="w-8 h-8 rounded-full border-2 border-primary/20" data-alt="Merchant Profile Image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtRJ-ajYDoRGHqT0k9ZvDQYXBUH1JWUtxBwJUuScKM0q8p1tSo7_Gf0aIALgNQKKhZjrWOdhfYa_TDw4LpG9AjcY4XfOuC8NIucjmYCSFgGYvy7qmMi8zoS5tXz8yFaNVkg9wMPoOGD3Gv1U_czoJwn28aZj4quksEVT7KXI0qXLCD6g4x1gsbH8deg12ocFoOILXOcE2c5SkreaBcr618nLho5SUVxwMFhhcvUg7-YLjHUVtTPgzNCFEU3EA2A4Fvyv_AOUppCpI"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 max-w-[calc(100%-16rem)]">
+<!-- Hero Metrics Section -->
+<div class="grid grid-cols-12 gap-8 mb-10">
+<div class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.04)] relative overflow-hidden group">
+<!-- Subtle Abstract Background Accent -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-20 -mt-20 blur-3xl group-hover:bg-primary/10 transition-all duration-500"></div>
+<div class="relative z-10">
+<span class="text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">Total Lifetime Earnings</span>
+<h2 id="totalEarnings" class="text-6xl font-extrabold text-primary font-headline mt-4 mb-2">₹0</h2>
+<div class="flex items-center gap-2 text-primary font-bold text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span id="earningsGrowth">Loading...</span>
+</div>
+</div>
+<!-- Simplified Trend Chart (CSS based) -->
+<div class="flex items-end gap-1 h-24 mt-12 overflow-hidden">
+<div class="w-full bg-surface-container-high rounded-t-sm transition-all duration-700 h-[40%] hover:h-[50%] hover:bg-primary/40"></div>
+<div class="w-full bg-surface-container-high rounded-t-sm transition-all duration-700 h-[55%] hover:h-[65%] hover:bg-primary/40"></div>
+<div class="w-full bg-surface-container-high rounded-t-sm transition-all duration-700 h-[45%] hover:h-[55%] hover:bg-primary/40"></div>
+<div class="w-full bg-surface-container-high rounded-t-sm transition-all duration-700 h-[70%] hover:h-[80%] hover:bg-primary/40"></div>
+<div class="w-full bg-surface-container-high rounded-t-sm transition-all duration-700 h-[85%] hover:h-[95%] hover:bg-primary/60"></div>
+<div class="w-full bg-primary rounded-t-sm transition-all duration-700 h-[92%]"></div>
+<div class="w-full bg-primary-container rounded-t-sm transition-all duration-700 h-[80%]"></div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<!-- Pending Payout Card -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-6 rounded-xl flex-1 flex flex-col justify-between border-l-4 border-tertiary">
+<div>
+<p class="text-xs uppercase tracking-widest font-bold opacity-70">Available for Payout</p>
+<h3 id="pendingPayout" class="text-3xl font-black font-headline mt-2">₹0</h3>
+</div>
+<a href="#" class="w-full py-4 bg-on-tertiary-fixed text-surface-container-lowest rounded-xl font-bold transition-all hover:opacity-90 active:scale-95 block text-center" onclick="requestPayout(); return false;">
+                        Request Payout
+                    </a>
+</div>
+<!-- Weekly Earnings Card -->
+<div class="bg-secondary-fixed p-6 rounded-xl flex-1 border-l-4 border-secondary">
+<p class="text-xs uppercase tracking-widest font-bold text-on-secondary-fixed-variant">Earnings (This Week)</p>
+<h3 id="weeklyEarnings" class="text-3xl font-black font-headline mt-2 text-on-secondary-fixed">₹0</h3>
+<p class="text-xs mt-3 text-on-secondary-fixed-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="calendar_month">calendar_month</span>
+                        <span id="weekDateRange">Loading...</span>
+                    </p>
+</div>
+</div>
+</div>
+<!-- Transaction History Section -->
+<div class="bg-surface-container-low rounded-xl p-1 pb-8">
+<div class="flex justify-between items-center p-8">
+<h2 class="text-xl font-bold font-headline">Recent Payout History</h2>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-primary text-on-primary text-xs font-bold rounded-lg transition-colors filter-btn" data-filter="all" onclick="filterTransactions('all')">All</button>
+<button class="px-4 py-2 bg-surface-container-lowest text-xs font-bold rounded-lg border border-outline-variant/20 hover:bg-surface-container transition-colors filter-btn" data-filter="today" onclick="filterTransactions('today')">Today</button>
+<button class="px-4 py-2 bg-surface-container-lowest text-xs font-bold rounded-lg border border-outline-variant/20 hover:bg-surface-container transition-colors filter-btn" data-filter="weekly" onclick="filterTransactions('weekly')">Weekly</button>
+<button class="px-4 py-2 bg-surface-container-lowest text-xs font-bold rounded-lg border border-outline-variant/20 hover:bg-surface-container transition-colors filter-btn" data-filter="monthly" onclick="filterTransactions('monthly')">Monthly</button>
+<button class="px-4 py-2 bg-surface-container-lowest text-xs font-bold rounded-lg border border-outline-variant/20 hover:bg-surface-container transition-colors flex items-center gap-1" onclick="exportToCSV()">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span> Export
+                    </button>
+</div>
+</div>
+<div class="overflow-x-auto px-8">
+<table class="w-full text-left border-collapse">
+<thead class="border-b border-outline-variant/10">
+<tr>
+<th class="pb-4 text-[0.75rem] uppercase tracking-wider font-bold text-on-surface-variant">Date</th>
+<th class="pb-4 text-[0.75rem] uppercase tracking-wider font-bold text-on-surface-variant">Reference ID</th>
+<th class="pb-4 text-[0.75rem] uppercase tracking-wider font-bold text-on-surface-variant text-right">Amount</th>
+<th class="pb-4 text-[0.75rem] uppercase tracking-wider font-bold text-on-surface-variant text-center">Status</th>
+<th class="pb-4 text-[0.75rem] uppercase tracking-wider font-bold text-on-surface-variant">Action</th>
+</tr>
+</thead>
+<tbody id="earningsTableBody" class="divide-y divide-outline-variant/10">
+<!-- Dynamic rows will be populated here -->
+</tbody>
+</table>
+</div>
+<div class="mt-8 px-8 flex justify-between items-center">
+<p class="text-xs text-on-surface-variant">Showing <span id="recordCount">0</span> transactions</p>
+</div>
+</div>
+<!-- Secondary Charts & Insights -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+<div class="bg-surface-container-lowest p-8 rounded-xl border-l-4 border-primary">
+<h4 class="font-bold font-headline mb-6">Settlement Breakdown</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span>Auto-Settlements</span>
+<span>85%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs font-bold mb-2">
+<span>Manual Payouts</span>
+<span>15%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[15%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border-l-4 border-tertiary">
+<h4 class="font-bold font-headline mb-4">Quick Insight</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                    Your highest earning period this month was between <span class="font-bold text-on-background">12 Oct - 18 Oct</span>. During this time, the average order value increased by <span class="text-primary font-bold">22%</span> compared to the previous week.
+                </p>
+<a class="inline-block mt-6 text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                    View Monthly Report <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</main>
+
+<script>
+// ==================== EARNINGS & PAYOUTS DASHBOARD ====================
+
+// ========== Global Variables ==========
+let allTransactions = [];
+let filteredTransactions = [];
+let currentFilter = 'all';
+
+// ========== Format Currency ==========
+function formatCurrency(amount) {
+    return '₹' + amount.toLocaleString('en-IN', { 
+        minimumFractionDigits: 0, 
+        maximumFractionDigits: 0 
+    });
+}
+
+// ========== Format Date ==========
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-IN', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+    });
+}
+
+// ========== Get Date Range (Week) ==========
+function getWeekDateRange() {
+    const today = new Date();
+    const dayOfWeek = today.getDay();
+    const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+    const monday = new Date(today.setDate(diff));
+    const sunday = new Date(today.setDate(diff + 6));
+    
+    const start = formatDate(monday);
+    const end = formatDate(sunday);
+    return `${start} - ${end}`;
+}
+
+// ========== Fetch Earnings Data ==========
+async function fetchEarningsData() {
+    try {
+        const response = await fetch('http://localhost:5000/api/earnings');
+        if (!response.ok) throw new Error('Failed to fetch earnings data');
+        
+        const data = await response.json();
+        console.log('Earnings data:', data);
+        
+        // Populate summary cards
+        if (data.summary) {
+            const totalEarnings = document.getElementById('totalEarnings');
+            const earningsGrowth = document.getElementById('earningsGrowth');
+            const pendingPayout = document.getElementById('pendingPayout');
+            const weeklyEarnings = document.getElementById('weeklyEarnings');
+            const weekDateRange = document.getElementById('weekDateRange');
+            
+            if (totalEarnings) totalEarnings.textContent = formatCurrency(data.summary.totalEarnings || 0);
+            if (earningsGrowth) earningsGrowth.textContent = data.summary.growthPercentage || '+0%';
+            if (pendingPayout) pendingPayout.textContent = formatCurrency(data.summary.pendingPayout || 0);
+            if (weeklyEarnings) weeklyEarnings.textContent = formatCurrency(data.summary.weeklyEarnings || 0);
+            if (weekDateRange) weekDateRange.textContent = getWeekDateRange();
+        }
+        
+        // Populate transactions table
+        if (data.transactions && Array.isArray(data.transactions)) {
+            allTransactions = data.transactions;
+            filteredTransactions = allTransactions;
+            renderTransactionsTable(allTransactions);
+        }
+        
+    } catch (error) {
+        console.error('Error fetching earnings data:', error);
+        showNoDataMessage();
+    }
+}
+
+// ========== Render Transactions Table ==========
+function renderTransactionsTable(transactions) {
+    const tbody = document.getElementById('earningsTableBody');
+    const recordCount = document.getElementById('recordCount');
+    
+    if (!transactions || transactions.length === 0) {
+        tbody.innerHTML = `
+            <tr>
+                <td colspan="5" class="py-12 text-center text-on-surface-variant">
+                    <span class="material-symbols-outlined text-5xl opacity-20 block mb-4">receipt_long</span>
+                    <p class="text-sm font-medium">No transactions found</p>
+                </td>
+            </tr>
+        `;
+        if (recordCount) recordCount.textContent = '0';
+        return;
+    }
+    
+    tbody.innerHTML = transactions.map((transaction, index) => {
+        const statusClass = transaction.status === 'Paid' 
+            ? 'bg-primary-fixed text-on-primary-fixed-variant' 
+            : transaction.status === 'Pending' 
+            ? 'bg-error-container text-on-error-container'
+            : 'bg-surface-container text-on-surface-variant';
+        
+        return `
+            <tr class="group hover:bg-surface-container-high transition-colors">
+                <td class="py-5 font-medium text-sm">${formatDate(transaction.date)}</td>
+                <td class="py-5 text-sm font-mono text-on-surface-variant">${transaction.referenceId}</td>
+                <td class="py-5 text-sm font-bold text-right font-headline">${formatCurrency(transaction.amount)}</td>
+                <td class="py-5 text-center">
+                    <span class="${statusClass} px-3 py-1 rounded-full text-[10px] font-bold uppercase">
+                        ${transaction.status}
+                    </span>
+                </td>
+                <td class="py-5">
+                    <button class="text-primary hover:underline text-xs font-bold" onclick="viewTransactionDetails('${transaction.id}')">
+                        Details
+                    </button>
+                </td>
+            </tr>
+        `;
+    }).join('');
+    
+    if (recordCount) recordCount.textContent = transactions.length;
+}
+
+// ========== Filter Transactions ==========
+function filterTransactions(filterType) {
+    currentFilter = filterType;
+    
+    // Update button styles
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-lowest', 'border', 'border-outline-variant/20', 'hover:bg-surface-container');
+    });
+    
+    const activeBtn = document.querySelector(`[data-filter="${filterType}"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('bg-primary', 'text-on-primary');
+        activeBtn.classList.remove('bg-surface-container-lowest', 'border', 'border-outline-variant/20', 'hover:bg-surface-container');
+    }
+    
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const weekStart = new Date(today);
+    weekStart.setDate(today.getDate() - today.getDay() + (today.getDay() === 0 ? -6 : 1));
+    
+    const monthStart = new Date(today.getFullYear(), today.getMonth(), 1);
+    
+    switch(filterType) {
+        case 'today':
+            filteredTransactions = allTransactions.filter(t => {
+                const tDate = new Date(t.date);
+                tDate.setHours(0, 0, 0, 0);
+                return tDate.getTime() === today.getTime();
+            });
+            break;
+        case 'weekly':
+            filteredTransactions = allTransactions.filter(t => {
+                const tDate = new Date(t.date);
+                return tDate >= weekStart && tDate <= today;
+            });
+            break;
+        case 'monthly':
+            filteredTransactions = allTransactions.filter(t => {
+                const tDate = new Date(t.date);
+                return tDate >= monthStart && tDate <= today;
+            });
+            break;
+        case 'all':
+        default:
+            filteredTransactions = allTransactions;
+    }
+    
+    renderTransactionsTable(filteredTransactions);
+}
+
+// ========== Search Functionality ==========
+function searchTransactions(query) {
+    const searchTerm = query.toLowerCase().trim();
+    
+    if (!searchTerm) {
+        filterTransactions(currentFilter);
+        return;
+    }
+    
+    const results = allTransactions.filter(t => 
+        t.referenceId.toLowerCase().includes(searchTerm) ||
+        t.date.toLowerCase().includes(searchTerm) ||
+        t.amount.toString().includes(searchTerm) ||
+        t.status.toLowerCase().includes(searchTerm)
+    );
+    
+    renderTransactionsTable(results);
+}
+
+// ========== Export to CSV ==========
+function exportToCSV() {
+    if (!filteredTransactions || filteredTransactions.length === 0) {
+        alert('No transactions to export');
+        return;
+    }
+    
+    const headers = ['Date', 'Reference ID', 'Amount', 'Status'];
+    const csvContent = [
+        headers.join(','),
+        ...filteredTransactions.map(t => [
+            formatDate(t.date),
+            t.referenceId,
+            formatCurrency(t.amount),
+            t.status
+        ].map(field => `"${field}"`).join(','))
+    ].join('\n');
+    
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `earnings-export-${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// ========== Request Payout ==========
+function requestPayout() {
+    const pendingPayoutElement = document.getElementById('pendingPayout');
+    const amount = pendingPayoutElement ? pendingPayoutElement.textContent : '₹0';
+    
+    if (amount === '₹0') {
+        alert('No funds available for payout');
+        return;
+    }
+    
+    alert(`Payout request initiated for ${amount}\n\nPlease check your email for confirmation.`);
+    // In production, make an API call to initiate payout
+}
+
+// ========== View Transaction Details ==========
+function viewTransactionDetails(transactionId) {
+    const transaction = allTransactions.find(t => t.id === transactionId);
+    if (transaction) {
+        alert(`Transaction Details:\n\nID: ${transaction.id}\nDate: ${formatDate(transaction.date)}\nAmount: ${formatCurrency(transaction.amount)}\nStatus: ${transaction.status}\nReference: ${transaction.referenceId}`);
+        // In production, open a detailed view modal
+    }
+}
+
+// ========== Show No Data Message ==========
+function showNoDataMessage() {
+    const tbody = document.getElementById('earningsTableBody');
+    const totalEarnings = document.getElementById('totalEarnings');
+    const earningsGrowth = document.getElementById('earningsGrowth');
+    const pendingPayout = document.getElementById('pendingPayout');
+    const weeklyEarnings = document.getElementById('weeklyEarnings');
+    const weekDateRange = document.getElementById('weekDateRange');
+    const recordCount = document.getElementById('recordCount');
+    
+    if (tbody) tbody.innerHTML = `
+        <tr>
+            <td colspan="5" class="py-12 text-center text-on-surface-variant">
+                <p class="text-sm font-medium">Unable to load data. Please try again later.</p>
+            </td>
+        </tr>
+    `;
+    
+    if (totalEarnings) totalEarnings.textContent = '₹0';
+    if (earningsGrowth) earningsGrowth.textContent = '0%';
+    if (pendingPayout) pendingPayout.textContent = '₹0';
+    if (weeklyEarnings) weeklyEarnings.textContent = '₹0';
+    if (weekDateRange) weekDateRange.textContent = getWeekDateRange();
+    if (recordCount) recordCount.textContent = '0';
+}
+
+// ========== Search Input Event Listener ==========
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch data on page load
+    fetchEarningsData();
+    
+    // Add search functionality
+    const searchInput = document.querySelector('input[placeholder*="Search transactions"]');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            searchTransactions(this.value);
+        });
+    }
+    
+    // Set 'All' filter as default
+    filterTransactions('all');
+});
+
+// ========== END EARNINGS & PAYOUTS DASHBOARD ====================
+</script>
+</body></html>

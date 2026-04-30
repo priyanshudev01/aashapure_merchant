@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reports & Analytics | Asha Pure Merchant</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../shared/app.css" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#206223",
+        "primary-container": "#3a7b3a",
+        surface: "#f9f9f9",
+        "surface-container-low": "#f3f3f3",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed": "#cfe6f2",
+        "tertiary-fixed": "#ffd9e2",
+        "error-container": "#ffdad6"
+      },
+      fontFamily: {
+        headline: ["Manrope"],
+        body: ["Inter"]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body text-slate-900">
+<aside class="fixed left-0 top-0 flex h-full w-64 flex-col overflow-y-auto bg-[#f9f9f9] shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+  <div class="p-8">
+    <div class="font-headline text-2xl font-black text-primary">Asha Pure Merchant</div>
+    <div class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500" data-merchant-name>Merchant Name</div>
+  </div>
+  <nav class="flex-1 px-4 space-y-1">
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../merchant_dashboard/code.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../products_list/code.html"><span class="material-symbols-outlined">category</span>Products</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../orders_management/code.html"><span class="material-symbols-outlined">shopping_cart</span>Orders</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../profile_settings/code.html"><span class="material-symbols-outlined">groups</span>Customers</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../notifications/code.html"><span class="material-symbols-outlined">payments</span>Transactions</a>
+    <a class="flex items-center gap-3 rounded-r-full bg-stone-200 px-4 py-3 text-sm font-bold text-primary" href="../states_errors/code.html"><span class="material-symbols-outlined">insights</span>Reports</a>
+  </nav>
+</aside>
+
+<header class="fixed left-64 right-0 top-0 z-30 flex items-center justify-between bg-[#f9f9f9]/90 px-8 py-4 backdrop-blur-xl">
+  <div>
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Analytics</p>
+    <h1 class="font-headline text-2xl font-extrabold">Reports & Analytics</h1>
+  </div>
+  <div class="text-right">
+    <div class="text-sm font-bold text-primary" data-user-name>Merchant Name</div>
+    <div class="app-status-badge" data-kyc-status data-status="not_started">KYC Pending</div>
+  </div>
+</header>
+
+<main class="ml-64 mt-24 p-8">
+  <section id="reportSummary" class="grid grid-cols-1 gap-4 md:grid-cols-4"></section>
+
+  <section class="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-2">
+    <div class="rounded-3xl bg-white p-6 shadow-sm">
+      <h2 class="font-headline text-xl font-bold">Revenue by Day</h2>
+      <p class="mt-1 text-sm text-slate-500">Computed from transaction records in the database.</p>
+      <div id="revenueChart" class="mt-6 space-y-4"></div>
+    </div>
+
+    <div class="rounded-3xl bg-white p-6 shadow-sm">
+      <h2 class="font-headline text-xl font-bold">Orders by Status</h2>
+      <p class="mt-1 text-sm text-slate-500">Operational mix of pending, delivered, and cancelled orders.</p>
+      <div id="statusChart" class="mt-6 space-y-4"></div>
+    </div>
+  </section>
+
+  <section class="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-2">
+    <div class="rounded-3xl bg-white p-6 shadow-sm">
+      <h2 class="font-headline text-xl font-bold">Low Stock Report</h2>
+      <p class="mt-1 text-sm text-slate-500">Products that need replenishment before the next selling cycle.</p>
+      <div id="stockReport" class="mt-6 space-y-3"></div>
+    </div>
+
+    <div class="rounded-3xl bg-white p-6 shadow-sm">
+      <h2 class="font-headline text-xl font-bold">Top Customers by Orders</h2>
+      <p class="mt-1 text-sm text-slate-500">Best-performing customer relationships from seeded order history.</p>
+      <div id="topCustomerReport" class="mt-6 space-y-3"></div>
+    </div>
+  </section>
+</main>
+
+<script src="../shared/app.js"></script>
+<script>
+function renderSummary(summary, analytics) {
+  const reportingDays = Object.keys(analytics.revenueByDay || {}).length;
+  const cards = [
+    { label: "Revenue", value: AppShell.formatCurrency(summary.totalRevenue || 0), tone: "bg-white" },
+    { label: "Orders", value: summary.totalOrders || 0, tone: "bg-secondary-fixed" },
+    { label: "Pending", value: summary.pendingOrders || 0, tone: "bg-tertiary-fixed" },
+    { label: "Tracked Days", value: reportingDays, tone: "bg-white" }
+  ];
+
+  document.getElementById("reportSummary").innerHTML = cards.map((card) => `
+    <article class="${card.tone} rounded-3xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">${card.label}</p>
+      <p class="mt-4 font-headline text-3xl font-extrabold">${card.value}</p>
+    </article>
+  `).join("");
+}
+
+function renderBarList(containerId, entries, formatter) {
+  const container = document.getElementById(containerId);
+  if (!entries.length) {
+    container.innerHTML = AppShell.buildEmptyState("No analytics available", "Metrics will appear here once records are available in the database.", "insights");
+    return;
+  }
+
+  const maxValue = Math.max(...entries.map(([, value]) => Number(value || 0)), 1);
+  container.innerHTML = entries.map(([label, value]) => `
+    <div>
+      <div class="mb-2 flex items-center justify-between text-sm">
+        <span class="font-semibold">${label}</span>
+        <span class="text-slate-500">${formatter(value)}</span>
+      </div>
+      <div class="h-3 overflow-hidden rounded-full bg-surface-container-low">
+        <div class="h-full rounded-full bg-gradient-to-r from-primary to-primary-container" style="width:${Math.max((Number(value || 0) / maxValue) * 100, 8)}%"></div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function renderLowStock(items) {
+  const container = document.getElementById("stockReport");
+  if (!items.length) {
+    container.innerHTML = AppShell.buildEmptyState("No low stock items", "Inventory levels are healthy right now.", "inventory");
+    return;
+  }
+
+  container.innerHTML = items.map((item) => `
+    <article class="rounded-2xl bg-surface-container-low p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="text-sm font-bold">${item.productName}</p>
+          <p class="text-xs text-slate-500">Current available quantity</p>
+        </div>
+        <span class="rounded-full bg-error-container px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-red-700">${item.stockQuantity}</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderTopCustomers(customers) {
+  const container = document.getElementById("topCustomerReport");
+  if (!customers.length) {
+    container.innerHTML = AppShell.buildEmptyState("No customer analytics", "Top customers will appear once orders are tracked.", "groups");
+    return;
+  }
+
+  container.innerHTML = customers.slice(0, 5).map((customer) => `
+    <article class="rounded-2xl bg-surface-container-low p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="text-sm font-bold">${customer.name}</p>
+          <p class="text-xs text-slate-500">${customer.city} • ${customer.phone}</p>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">${customer.totalOrders} orders</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await AppShell.bootstrap();
+  const merchant = AppShell.getStoredMerchantProfile();
+
+  if (!merchant?.merchantId) {
+    window.location.href = "../merchant_onboarding/code.html";
+    return;
+  }
+
+  const [dashboard, analytics] = await Promise.all([
+    AppShell.fetchJson(`/dashboard/${merchant.merchantId}`).catch(() => null),
+    AppShell.fetchJson(`/analytics/${merchant.merchantId}`).catch(() => ({ revenueByDay: {}, ordersByStatus: {}, lowStockProducts: [] }))
+  ]);
+
+  if (!dashboard) {
+    document.getElementById("reportSummary").innerHTML = AppShell.buildEmptyState("Reports unavailable", "Unable to fetch report data from the database.", "error");
+    return;
+  }
+
+  renderSummary(dashboard.summary || {}, analytics || {});
+  renderBarList(
+    "revenueChart",
+    Object.entries(analytics.revenueByDay || {}).slice(-7).map(([day, value]) => [AppShell.formatDate(day), value]),
+    (value) => AppShell.formatCurrency(value)
+  );
+  renderBarList(
+    "statusChart",
+    Object.entries(analytics.ordersByStatus || {}),
+    (value) => `${value}`
+  );
+  renderLowStock(analytics.lowStockProducts || []);
+  renderTopCustomers(dashboard.customers || []);
+});
+</script>
+</body>
+</html>

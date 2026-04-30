@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add/Edit Product - The Tactile Ledger</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#b14b6f",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#2a6b2c",
+                    "secondary": "#4c616c",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-surface-variant": "#40493d",
+                    "tertiary": "#923357",
+                    "surface-container-low": "#f3f3f3",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "primary": "#206223",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ffedf0",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#707a6c",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed": "#002203",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary-fixed-dim": "#91d78a",
+                    "inverse-surface": "#2f3131",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#526772",
+                    "inverse-primary": "#91d78a",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#3f001c",
+                    "on-primary-fixed-variant": "#0c5216",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "background": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#7f2448",
+                    "on-secondary-fixed": "#071e27",
+                    "primary-fixed": "#acf4a4",
+                    "tertiary-fixed": "#ffd9e2",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#1a1c1c",
+                    "secondary-container": "#cfe6f2",
+                    "on-primary-container": "#cbffc2",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "primary-container": "#3a7b3a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for better tactile feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e2e2; border-radius: 10px; }
+        .glass-panel {
+            background: rgba(249, 249, 249, 0.8);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen">
+<!-- Sidebar (Shared Component SideNavBar) -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-8">
+<span class="text-2xl font-black text-[#206223] dark:text-green-500 font-headline">The Tactile Ledger</span>
+<div class="mt-2 text-xs uppercase tracking-widest text-on-surface-variant font-label">Aasapure Merchant</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<!-- Inventory (Active) -->
+<a class="flex items-center px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full group" href="#">
+<span class="material-symbols-outlined mr-3">inventory_2</span>
+<span class="text-sm">Inventory</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="text-sm font-medium">Earnings</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="text-sm font-medium">KYC Documents</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 space-y-4">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg active:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+<span>New Product</span>
+</button>
+<div class="pt-4 border-t border-surface-container">
+<a class="flex items-center px-4 py-2 text-stone-600 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="text-xs font-semibold">Help Center</span>
+</a>
+<a class="flex items-center px-4 py-2 text-stone-600 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="text-xs font-semibold">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Top Bar (Shared Component TopNavBar) -->
+<header class="fixed top-0 left-64 right-0 z-30 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center px-8 py-4">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Search inventory..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">history</span>
+</button>
+<div class="relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</div>
+</div>
+<div class="flex items-center gap-3 pl-6 border-l border-surface-container">
+<div class="text-right">
+<div class="text-sm font-bold text-primary">Merchant Verified</div>
+<div class="text-[10px] uppercase tracking-tighter text-on-surface-variant">Aasapure Premium</div>
+</div>
+<img alt="Merchant Profile Image" class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="Close up professional portrait of a south asian business owner in a clean office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7vy7epIn-r4ldItISHmuP0NI1ouM-yP8QxxPrF9qelYfaTiChKDFXfl-mMCp465awBgYRoVBQMs8FcZKgTK6BP3S3R7zGG2fdl6Hpf9taU0ggVRIaDUSzKVKEY1MAbbGjopDNLdJtukFQFs8FBlb1kVmlU7g2HGQ2oRE5mwclbhRB7ZvCPEXyxYYhEE8r5Rq2s0B6XeDfADwMZQobq6ySrRxi30NYqa6gccCL7C8r08Tv4qbFekskLPvBbMUVE9IytCQikly8c2A"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-[72px] p-10 max-w-6xl mx-auto">
+<!-- Page Header -->
+<div class="mb-10">
+<nav class="flex items-center gap-2 text-xs font-medium text-on-surface-variant mb-4 font-label">
+<a class="hover:text-primary transition-colors" href="#">INVENTORY</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface">ADD NEW PRODUCT</span>
+</nav>
+<h1 class="text-4xl font-extrabold font-headline text-on-surface tracking-tight">List Dairy Product</h1>
+<p class="text-on-surface-variant mt-2 text-sm max-w-lg">Define your dairy product details, availability, livestock information, and delivery terms for the Aasapure marketplace.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+<!-- Form Section -->
+<section class="lg:col-span-2 space-y-8">
+<div class="bg-surface-container-low rounded-[2rem] p-8 lg:p-12">
+<form class="space-y-8" id="productForm">
+<!-- Basic Info Bento Section -->
+<div class="space-y-6">
+<div class="flex items-center gap-3 pb-2 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-primary" data-weight="fill">inventory</span>
+<h2 class="text-lg font-bold font-headline">Basic Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Product Name -->
+<div class="col-span-1 md:col-span-2">
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Product Type</label>
+<select id="productType" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium appearance-none" required>
+<option value="">Select Product Type</option>
+<option value="Cow Milk">Cow Milk</option>
+<option value="Buffalo Milk">Buffalo Milk</option>
+<option value="Mixed Milk">Mixed Milk (Cow + Buffalo)</option>
+<option value="Paneer">Paneer</option>
+<option value="Curd">Curd</option>
+<option value="Ghee">Ghee</option>
+</select>
+<p class="mt-1.5 text-[11px] text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">info</span>
+                                        Select the primary dairy product you're offering.
+                                    </p>
+</div>
+<!-- Category Dropdown -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Price Unit</label>
+<select id="priceUnit" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium appearance-none" required>
+<option value="">Select Unit</option>
+<option value="Per Litre">Per Litre (L)</option>
+<option value="Per Kilogram">Per Kilogram (Kg)</option>
+</select>
+</div>
+<!-- Unit Type -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Fat Percentage (%)</label>
+<input id="fatPercentage" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium" placeholder="e.g. 6.5" type="number" step="0.1" value="6.8" min="1" max="15" required/>
+</div>
+</div>
+<!-- Description -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Product Description</label>
+<textarea id="description" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium resize-none" placeholder="Describe sourcing, processing, and quality standards..." rows="4" required></textarea>
+</div>
+</div>
+<!-- Commercials & Inventory Section -->
+<div class="space-y-6 pt-6">
+<div class="flex items-center gap-3 pb-2 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-primary" data-weight="fill">agriculture</span>
+<h2 class="text-lg font-bold font-headline">Inventory &amp; Livestock</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Price per Unit -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Price per Unit (₹)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-headline font-bold">₹</span>
+<input id="price" class="w-full pl-8 bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl py-3 text-on-surface font-headline font-bold text-lg" type="number" value="80" min="1" required/>
+</div>
+</div>
+<!-- Available Quantity -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Available Quantity</label>
+<input id="quantity" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium" placeholder="e.g. 250" type="number" value="250" min="0" required/>
+</div>
+<!-- Number of Cows -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Number of Cows</label>
+<input id="cows" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium" placeholder="e.g. 15" type="number" value="15" min="0" required/>
+</div>
+<!-- Number of Buffaloes -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Number of Buffaloes</label>
+<input id="buffaloes" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium" placeholder="e.g. 8" type="number" value="8" min="0" required/>
+</div>
+<!-- Supply Time -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Supply Time</label>
+<select id="supplyTime" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium appearance-none" required>
+<option value="">Select Supply Time</option>
+<option value="Morning">Morning (5-8 AM)</option>
+<option value="Evening">Evening (5-8 PM)</option>
+<option value="Both">Both (Morning & Evening)</option>
+</select>
+</div>
+<!-- Delivery Radius -->
+<div>
+<label class="block text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Delivery Radius (KM)</label>
+<input id="deliveryRadius" class="w-full bg-surface-container-highest border-none focus:ring-2 focus:ring-primary/20 rounded-xl px-4 py-3 text-on-surface font-medium" placeholder="e.g. 15" type="number" value="15" min="1" required/>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-end gap-4 pt-10">
+<button class="px-8 py-3 bg-surface-container-high text-on-surface-variant font-bold rounded-xl hover:bg-surface-container-highest transition-colors active:scale-95" type="reset">
+                                Cancel
+                            </button>
+<button class="px-10 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-xl hover:shadow-primary/20 active:scale-95 transition-all" id="submitBtn" type="submit">
+                                List Product
+                            </button>
+</div>
+</form>
+</div>
+</section>
+<!-- Sidebar / Preview Section -->
+<aside class="space-y-6">
+<!-- Product Preview Card -->
+<div class="bg-surface-container-lowest rounded-[2rem] p-6 shadow-2xl shadow-on-surface/5 border border-outline-variant/10 overflow-hidden">
+<div class="mb-6 rounded-2xl overflow-hidden aspect-square bg-surface-container relative group">
+<img alt="Dairy Product Preview" class="w-full h-full object-cover" data-alt="Fresh organic buffalo milk in glass bottles with white cream layer on rustic wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9f8FipAy3M4mYaOEp3zVD6NkTywNDczfU2BTFJGAMgsZvb0NNsqp9PKK2RaE6CIHlMDugGW1p_coIWjK6SP8oNRQ3Wm4KmgbnNVdXyrR-bvhPpEhDfBsreJIOk7n282YkqUPYbpnrE0MdWuNTjzu0nG4j6yoD5sX5c7MfjoJr7jvt1JQzQcZYZPaFYlZDTrfAAuwEj-SWnECzh3kI42vmgn-uDn3mXclB1YVzoK7OuN68j97N9Zpk11iKzn9buqVCgBhU87J4LGg"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center cursor-pointer">
+<span class="material-symbols-outlined text-white text-3xl">add_a_photo</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<span class="px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full uppercase tracking-widest">Buffalo Milk</span>
+<span class="text-tertiary font-bold text-sm">₹ 80 / L</span>
+</div>
+<h3 class="text-xl font-extrabold font-headline text-on-surface">Fresh Buffalo Milk</h3>
+<div class="flex items-center gap-2 text-on-surface-variant text-xs">
+<span class="material-symbols-outlined text-sm">water_drop</span>
+<span>Available: 250 Litres</span>
+</div>
+<div class="pt-4 border-t border-surface-container">
+<div class="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest mb-1">Dairy Insights</div>
+<p class="text-xs italic leading-relaxed text-secondary-fixed-variant">"Morning supply is in high demand. Consider offering daily subscriptions for steady income."</p>
+</div>
+</div>
+</div>
+<!-- Guidance Card -->
+<div class="bg-tertiary-container text-on-tertiary-container rounded-[2rem] p-8 relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="text-lg font-bold font-headline mb-3">Dairy Tips</h4>
+<ul class="space-y-3">
+<li class="flex gap-3 text-sm leading-snug">
+<span class="material-symbols-outlined text-sm flex-shrink-0 mt-0.5">verified</span>
+                                Regular testing & quality certifications boost buyer confidence.
+                            </li>
+<li class="flex gap-3 text-sm leading-snug">
+<span class="material-symbols-outlined text-sm flex-shrink-0 mt-0.5">trending_up</span>
+                                Consistent supply time builds customer loyalty & subscriptions.
+                            </li>
+</ul>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-8xl opacity-10 rotate-12">lightbulb</span>
+</div>
+</aside>
+</div>
+</main>
+<script>
+document.getElementById('productForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  // Get form values
+  const productType = document.getElementById('productType').value;
+  const priceUnit = document.getElementById('priceUnit').value;
+  const fatPercentage = parseFloat(document.getElementById('fatPercentage').value);
+  const description = document.getElementById('description').value;
+  const price = parseFloat(document.getElementById('price').value);
+  const quantity = parseFloat(document.getElementById('quantity').value);
+  const cows = parseInt(document.getElementById('cows').value);
+  const buffaloes = parseInt(document.getElementById('buffaloes').value);
+  const supplyTime = document.getElementById('supplyTime').value;
+  const deliveryRadius = parseInt(document.getElementById('deliveryRadius').value);
+  
+  // Validation
+  if (!productType || !priceUnit || !description || !supplyTime) {
+    alert('Please fill all required fields');
+    return;
+  }
+  
+  if (price <= 0) {
+    alert('Price must be greater than 0');
+    return;
+  }
+  
+  if (quantity < 0) {
+    alert('Quantity cannot be negative');
+    return;
+  }
+  
+  if (fatPercentage < 1 || fatPercentage > 15) {
+    alert('Fat percentage must be between 1 to 15');
+    return;
+  }
+  
+  // Prepare data
+  const productData = {
+    productType,
+    priceUnit,
+    fatPercentage,
+    description,
+    price,
+    quantity,
+    cows,
+    buffaloes,
+    supplyTime,
+    deliveryRadius
+  };
+  
+  try {
+    const response = await fetch('http://localhost:5000/api/products', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(productData)
+    });
+    
+    const result = await response.json();
+    
+    if (response.ok) {
+      alert('Product Listed Successfully!');
+      document.getElementById('productForm').reset();
+    } else {
+      alert('Error: ' + result.message);
+    }
+  } catch (error) {
+    console.log(error);
+    alert('Error submitting form');
+  }
+});
+</script>
+</body></html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings | Asha Pure Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../shared/app.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b14b6f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2a6b2c",
+                        "secondary": "#4c616c",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-surface-variant": "#40493d",
+                        "tertiary": "#923357",
+                        "surface-container-low": "#f3f3f3",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "primary": "#206223",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#707a6c",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed": "#002203",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "inverse-primary": "#91d78a",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-primary-fixed-variant": "#0c5216",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "background": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed": "#071e27",
+                        "primary-fixed": "#acf4a4",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#cfe6f2",
+                        "on-primary-container": "#cbffc2",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "primary-container": "#3a7b3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 h-screen w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-8">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500">Asha Pure Merchant</h1>
+<div class="mt-2 flex items-center gap-3">
+<div>
+<p class="font-manrope text-sm font-bold text-on-surface" data-user-name>Merchant Name</p>
+<p class="font-inter text-[10px] uppercase tracking-wider text-on-surface-variant" data-merchant-name>Merchant Name</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-inter text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-inter text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-inter text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-inter text-sm font-medium">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-inter text-sm font-medium">KYC Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-inter text-sm">Settings</span>
+</a>
+</nav>
+<div class="px-4 py-8 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-inter text-sm font-medium">Help Center</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-inter text-sm font-medium">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl flex justify-between items-center w-full px-8 py-4 shadow-sm dark:shadow-none">
+<div class="hidden items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-stone-100 dark:bg-stone-900 border-none rounded-xl focus:ring-2 focus:ring-primary/20 transition-all font-inter text-sm" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">notifications</span>
+<span class="material-symbols-outlined hover:text-primary cursor-pointer transition-colors">history</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-full" data-kyc-status data-status="not_started">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-primary font-bold text-xs uppercase tracking-tight">KYC Pending</span>
+</div>
+</div>
+</header>
+<div class="p-12 max-w-5xl mx-auto">
+<header class="mb-12">
+<h2 class="text-4xl font-extrabold text-on-surface mb-2 tracking-tight">Settings</h2>
+<p class="text-on-surface-variant font-inter">Manage your merchant account preferences and operational controls.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Navigation Tabs - Tactile Sidebar -->
+<div class="md:col-span-3 space-y-2">
+<button class="w-full text-left px-4 py-3 rounded-xl bg-surface-container-low text-primary font-bold flex items-center gap-3 transition-all">
+<span class="material-symbols-outlined text-xl">tune</span>
+<span class="text-sm">General</span>
+</button>
+<button class="hidden w-full text-left px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low flex items-center gap-3 transition-all">
+<span class="material-symbols-outlined text-xl">payments</span>
+<span class="text-sm">Payments</span>
+</button>
+<button class="hidden w-full text-left px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low flex items-center gap-3 transition-all">
+<span class="material-symbols-outlined text-xl">notifications_active</span>
+<span class="text-sm">Notifications</span>
+</button>
+<button class="hidden w-full text-left px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-low flex items-center gap-3 transition-all">
+<span class="material-symbols-outlined text-xl">security</span>
+<span class="text-sm">Security</span>
+</button>
+</div>
+<!-- Settings Content -->
+<div class="md:col-span-9 space-y-8">
+<!-- Notifications Section -->
+<section class="bg-surface-container-low rounded-xl p-8 shadow-sm">
+<h3 class="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">notifications</span>
+                            Preferences &amp; Alerts
+                        </h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-semibold text-on-surface">App Notifications</h4>
+<p class="text-xs text-on-surface-variant">Receive push updates about orders and delivery status.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input id="appNotifications" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<h4 class="font-semibold text-on-surface">Email Alerts</h4>
+<p class="text-xs text-on-surface-variant">Daily summary of earnings and weekly inventory reports.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input id="emailAlerts" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Operations Section -->
+<section class="bg-surface-container-low rounded-xl p-8 shadow-sm">
+<h3 class="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+                            Business Operations
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Business Hours</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">alarm</span>
+<input id="businessHours" class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-none rounded-lg focus:ring-2 focus:ring-primary/20 font-inter text-sm" type="text" value="09:00 AM - 08:00 PM"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Language Selection</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">language</span>
+<select id="language" class="w-full pl-10 pr-4 py-3 bg-surface-container-lowest border-none rounded-lg focus:ring-2 focus:ring-primary/20 font-inter text-sm appearance-none">
+<option>English (India)</option>
+<option>Hindi (हिन्दी)</option>
+<option>Marathi (मराठी)</option>
+<option>Gujarati (ગુજરાતી)</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Payment Settings -->
+<section class="bg-surface-container-low rounded-xl p-8 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-8xl">account_balance_wallet</span>
+</div>
+<h3 class="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">payments</span>
+                            Receiving Payments
+                        </h3>
+<div class="space-y-6">
+<div class="p-4 bg-surface-container-lowest rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">HDFC Bank Primary</h4>
+<p class="text-xs text-on-surface-variant">Settlement Account • ***4291</p>
+</div>
+</div>
+<span class="hidden material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-xl flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined">qr_code_2</span>
+</div>
+<div>
+<h4 class="font-bold text-on-surface">UPI Merchant ID</h4>
+<p class="text-xs text-on-surface-variant">Active • aasapure@hdfcbank</p>
+</div>
+</div>
+<span class="hidden material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+<div class="flex items-center justify-between pt-4">
+<div>
+<h4 class="font-semibold text-on-surface">Instant Settlements</h4>
+<p class="text-xs text-on-surface-variant">Funds are transferred within 30 minutes of order completion.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input id="instantSettlement" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Save Action -->
+<div class="flex items-center justify-end gap-4 pt-4">
+<button id="discardBtn" class="px-6 py-3 font-inter text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-colors">Discard Changes</button>
+<button id="saveBtn" class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-inter font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                            Save Preferences
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression Applied as per rules: Hidden on Settings screen -->
+<script src="../shared/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { merchant } = await AppShell.bootstrap();
+  if (!merchant?.merchantId) {
+    return;
+  }
+
+  const fields = {
+    appNotifications: document.getElementById("appNotifications"),
+    emailAlerts: document.getElementById("emailAlerts"),
+    instantSettlement: document.getElementById("instantSettlement"),
+    businessHours: document.getElementById("businessHours"),
+    language: document.getElementById("language")
+  };
+
+  const settings = await AppShell.fetchJson(`/settings/${merchant.merchantId}`).catch(() => null);
+  if (settings) {
+    fields.appNotifications.checked = Boolean(settings.appNotifications);
+    fields.emailAlerts.checked = Boolean(settings.emailAlerts);
+    fields.instantSettlement.checked = Boolean(settings.instantSettlement);
+    fields.businessHours.value = settings.businessHours || fields.businessHours.value;
+    fields.language.value = settings.language || fields.language.value;
+  }
+
+  document.getElementById("saveBtn").addEventListener("click", async () => {
+    const payload = {
+      merchantId: merchant.merchantId,
+      merchantName: merchant.businessName,
+      appNotifications: fields.appNotifications.checked,
+      emailAlerts: fields.emailAlerts.checked,
+      instantSettlement: fields.instantSettlement.checked,
+      businessHours: fields.businessHours.value.trim(),
+      language: fields.language.value
+    };
+
+    const response = await fetch(`${AppShell.API_BASE}/settings`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+
+    const result = await response.json();
+    alert(result.message || "Settings saved");
+  });
+
+  document.getElementById("discardBtn").addEventListener("click", () => {
+    window.location.reload();
+  });
+});
+</script>
+
+
+</body></html>

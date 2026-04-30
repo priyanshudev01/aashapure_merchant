@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settlement Details</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="../shared/app.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100">
+<div class="flex min-h-screen">
+<div class="w-1/3 bg-green-700 p-10 text-white">
+<h1 class="text-5xl font-bold leading-tight">Bank Settlement</h1>
+<p class="mt-6 text-lg">Add your bank account details to receive payments.</p>
+<div class="mt-10 rounded-2xl bg-white/10 p-5">
+<p class="text-sm font-semibold" data-merchant-name>Merchant Name</p>
+<p class="mt-2 text-xs uppercase tracking-[0.2em] text-white/80">Step 03 of 03</p>
+</div>
+</div>
+<div class="w-2/3 p-12">
+<p class="text-sm font-bold text-green-700">STEP 03 OF 03</p>
+<h1 class="mt-2 text-4xl font-bold">Settlement Details</h1>
+<p class="mt-2 text-sm text-slate-600">Payments for <span data-merchant-name>Merchant Name</span></p>
+
+<form id="settlementForm" class="mt-8">
+<div class="grid grid-cols-2 gap-6">
+<input id="holderName" type="text" placeholder="Account Holder Name" class="rounded-lg border p-4">
+<input id="bankName" type="text" placeholder="Bank Name" class="rounded-lg border p-4">
+<input id="accountNo" type="text" placeholder="Account Number" class="rounded-lg border p-4">
+<input id="ifsc" type="text" placeholder="IFSC Code" class="rounded-lg border p-4">
+<input id="upi" type="text" placeholder="UPI ID" class="rounded-lg border p-4">
+</div>
+<button id="finishBtn" class="mt-10 rounded-lg bg-green-700 px-8 py-4 text-white hover:bg-green-800" type="submit">Final Submit</button>
+</form>
+</div>
+</div>
+<script src="../shared/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { merchant } = await AppShell.bootstrap();
+  if (!merchant?.merchantId) {
+    window.location.href = "code.html";
+    return;
+  }
+
+  const settlement = await AppShell.fetchJson(`/settlement/${merchant.merchantId}`).catch(() => null);
+  if (settlement) {
+    document.getElementById("holderName").value = settlement.holderName || "";
+    document.getElementById("bankName").value = settlement.bankName || "";
+    document.getElementById("accountNo").value = settlement.accountNumber || "";
+    document.getElementById("ifsc").value = settlement.ifsc || "";
+    document.getElementById("upi").value = settlement.upi || "";
+  }
+});
+
+document.getElementById("settlementForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const merchant = AppShell.getStoredMerchantProfile();
+  if (!merchant?.merchantId) {
+    alert("Please complete merchant onboarding first.");
+    window.location.href = "code.html";
+    return;
+  }
+
+  const data = {
+    merchantId: merchant.merchantId,
+    holderName: document.getElementById("holderName").value.trim(),
+    bankName: document.getElementById("bankName").value.trim(),
+    accountNumber: document.getElementById("accountNo").value.trim(),
+    ifsc: document.getElementById("ifsc").value.trim().toUpperCase(),
+    upi: document.getElementById("upi").value.trim()
+  };
+
+  if (!data.holderName || !data.bankName || !data.accountNumber || !data.ifsc) {
+    alert("Please fill required fields");
+    return;
+  }
+
+  if (!/^[0-9]{9,18}$/.test(data.accountNumber)) {
+    alert("Enter valid Account Number");
+    return;
+  }
+
+  if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(data.ifsc)) {
+    alert("Enter valid IFSC Code");
+    return;
+  }
+
+  const res = await fetch(`${AppShell.API_BASE}/settlement`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const result = await res.json();
+  if (!res.ok) {
+    alert(result.message || "Unable to save settlement details");
+    return;
+  }
+
+  alert(result.message);
+  window.location.href = "../merchant_dashboard/code.html";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settlement Details</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex min-h-screen">
+
+<!-- Left -->
+<div class="w-1/3 bg-green-700 text-white p-10">
+<h1 class="text-5xl font-bold leading-tight">Bank Settlement</h1>
+<p class="mt-6 text-lg">
+Add your bank account details to receive payments.
+</p>
+</div>
+
+<!-- Right -->
+<div class="w-2/3 p-12">
+
+<p class="text-sm text-green-700 font-bold">STEP 03 OF 03</p>
+<h1 class="text-4xl font-bold mb-8">Settlement Details</h1>
+
+<div class="grid grid-cols-2 gap-6">
+
+<input id="holderName" type="text"
+placeholder="Account Holder Name"
+class="border p-4 rounded-lg">
+<input id="bankName" type="text" placeholder="Bank Name"
+class="border p-4 rounded-lg">
+
+<input id="accountNo" type="text" placeholder="Account Number"
+class="border p-4 rounded-lg">
+
+<input id="ifsc" type="text" placeholder="IFSC Code"
+class="border p-4 rounded-lg">
+
+<input id="upi" type="text" placeholder="UPI ID"
+class="border p-4 rounded-lg">
+
+</div>
+
+<button id="finishBtn"
+class="mt-10 bg-green-700 text-white px-8 py-4 rounded-lg hover:bg-green-800">
+Final Submit
+</button>
+
+</div>
+</div>
+
+<script>
+document.getElementById("finishBtn").addEventListener("click", async () => {
+
+ const data = {
+   holderName: document.getElementById("holderName").value.trim(),
+   bankName: document.getElementById("bankName").value.trim(),
+   accountNumber: document.getElementById("accountNo").value.trim(),
+   ifsc: document.getElementById("ifsc").value.trim().toUpperCase(),
+   upi: document.getElementById("upi").value.trim()
+ };
+
+ // Validation
+ if (!data.holderName || !data.bankName || !data.accountNumber || !data.ifsc) {
+   alert("Please fill required fields");
+   return;
+ }
+
+ // Account Number
+ if (!/^[0-9]{9,18}$/.test(data.accountNumber)) {
+   alert("Enter valid Account Number");
+   return;
+ }
+
+ // IFSC
+ if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(data.ifsc)) {
+   alert("Enter valid IFSC Code");
+   return;
+ }
+
+ const res = await fetch("http://localhost:5000/api/settlement", {
+   method: "POST",
+   headers: {
+     "Content-Type": "application/json"
+   },
+   body: JSON.stringify(data)
+ });
+
+ const result = await res.json();
+
+ alert(result.message);
+
+ window.location.href = "../merchant_dashboard/code.html";
+
+});
+</script>
+
+</body>
+</html>

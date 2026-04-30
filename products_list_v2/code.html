@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed": "#c9ecc1",
+                    "error": "#ba1a1a",
+                    "surface": "#f8f9fa",
+                    "primary-fixed": "#a3f69c",
+                    "on-error": "#ffffff",
+                    "secondary": "#476644",
+                    "on-primary-container": "#cbffc2",
+                    "on-secondary-fixed-variant": "#304e2e",
+                    "surface-container-low": "#f3f4f5",
+                    "on-surface": "#191c1d",
+                    "tertiary": "#923357",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed-variant": "#7f2448",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8e9",
+                    "secondary-container": "#c6e9be",
+                    "surface-tint": "#1b6d24",
+                    "on-secondary-container": "#4c6a48",
+                    "inverse-primary": "#88d982",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#ffd9e2",
+                    "on-primary-fixed-variant": "#005312",
+                    "on-primary-fixed": "#002204",
+                    "secondary-fixed-dim": "#add0a6",
+                    "surface-container-highest": "#e1e3e4",
+                    "on-background": "#191c1d",
+                    "primary-container": "#2e7d32",
+                    "inverse-surface": "#2e3132",
+                    "on-surface-variant": "#40493d",
+                    "tertiary-container": "#b14b6f",
+                    "on-tertiary-container": "#ffedf0",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "primary": "#0d631b",
+                    "outline-variant": "#bfcaba",
+                    "on-tertiary-fixed": "#3f001c",
+                    "surface-variant": "#e1e3e4",
+                    "surface-container": "#edeeef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .ghost-border-bottom {
+            border-bottom: 2px solid rgba(191, 202, 186, 0.2);
+        }
+        .editorial-shadow {
+            shadow: 0 24px 40px -10px rgba(25, 28, 29, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar from JSON -->
+<aside class="flex flex-col h-full p-4 gap-2 bg-slate-50 dark:bg-zinc-950 h-screen w-64 border-r-0 rounded-none font-manrope text-sm font-semibold tracking-tight">
+<div class="mb-8 px-2">
+<span class="text-xl font-bold tracking-tighter text-green-900 dark:text-white">Acme Corp</span>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Premium Merchant</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out scale-[0.98] active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-white dark:bg-zinc-800 text-green-700 dark:text-green-400 shadow-sm rounded-lg transition-all duration-200 ease-in-out scale-[0.98] active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out scale-[0.98] active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Transactions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out scale-[0.98] active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Customers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out scale-[0.98] active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out scale-[0.98] active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200/50 space-y-1">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl shadow-lg shadow-primary/20 font-bold mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+<span>New Invoice</span>
+</button>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-500 dark:text-zinc-400 hover:bg-slate-200/50 dark:hover:bg-zinc-800/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar from JSON -->
+<header class="flex justify-between items-center px-6 h-16 w-full sticky top-0 z-40 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md border-b border-slate-100 dark:border-zinc-800 shadow-sm font-manrope text-sm font-medium">
+<div class="flex items-center gap-8">
+<span class="text-lg font-black text-slate-900 dark:text-white">LedgerOS</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white" href="#">Overview</a>
+<a class="text-green-700 dark:text-green-400 border-b-2 border-green-700 py-5" href="#">Reports</a>
+</div>
+</div>
+<div class="flex-1 max-w-md px-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-green-500/20 text-sm transition-all" placeholder="Search products, SKUs, or orders..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<button class="px-4 py-2 text-green-700 font-bold hover:bg-green-50 rounded-lg transition-colors">Upgrade</button>
+<img alt="Merchant Profile Picture" class="w-8 h-8 rounded-full ring-2 ring-white shadow-sm" data-alt="close up of a professional businessman in a studio with soft neutral background lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwIi443IzdSFl8Kd-fktuZ18VAwN8bT-4oH3Fkfmkx5UAYaTxVmUKy11rJ2_U85qw0qNODrdX71GtWkumP7RFO6DTric98NHlnpL96dMCmG2iQdl4gv1RUYU_wER5c-lu7XOjdECyXUmm7UNQFZIR-AGX90tZsfBT8DdGrRUtX1q8m0-K8Xcdr5nug6-6FXlq-KzJQCZfY8kP_fFRP-WewXhsL2J0_ipxKZMsa3c5bUzgJmUpytBXziWn95ojOOqLiZrpm-QF-Cpw"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<section class="p-8 max-w-7xl mx-auto w-full">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-3xl font-extrabold tracking-tight text-on-surface">Product Inventory</h1>
+<p class="text-on-surface-variant mt-1">Manage and track your premium SaaS product catalog.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-on-surface font-semibold rounded-xl shadow-sm border border-outline-variant/10 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+<span>Filters</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest text-on-surface font-semibold rounded-xl shadow-sm border border-outline-variant/10 hover:bg-surface-bright transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="ios_share">ios_share</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+<!-- Bento Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Total Products</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black">1,284</span>
+<span class="text-primary text-xs font-bold flex items-center bg-primary-container/10 px-2 py-1 rounded-full">+12%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Active SKUs</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black">842</span>
+<span class="text-on-surface-variant text-xs font-medium">94% Capacity</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Out of Stock</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black">14</span>
+<span class="text-error text-xs font-bold bg-error-container/20 px-2 py-1 rounded-full">-3</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/5">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2">Total Value</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black">$42.8k</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="trending_up">trending_up</span>
+</div>
+</div>
+</div>
+<!-- Advanced Data Table Module -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/5">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest cursor-pointer hover:text-primary transition-colors">
+<div class="flex items-center gap-2">
+                                        Product Name
+                                        <span class="material-symbols-outlined text-sm" data-icon="unfold_more">unfold_more</span>
+</div>
+</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Category</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest">Status</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-right">Stock</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-right">Price</th>
+<th class="px-6 py-4 text-xs font-bold text-on-surface-variant uppercase tracking-widest text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-primary font-bold">L</div>
+<div>
+<p class="font-bold text-on-surface">Lumina Analytics Pro</p>
+<p class="text-xs text-on-surface-variant">SKU: LUM-9920</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">SaaS / Data</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="font-bold text-on-surface">Unlimited</p>
+<p class="text-[10px] text-on-surface-variant">Digital Asset</p>
+</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface">$299.00</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors" title="Edit">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors" title="Duplicate">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-lg text-error transition-colors" title="Delete">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary font-bold">V</div>
+<div>
+<p class="font-bold text-on-surface">Vortex VPN Suite</p>
+<p class="text-xs text-on-surface-variant">SKU: VTX-4412</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">Security</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-on-error-container">
+<span class="w-1.5 h-1.5 rounded-full bg-on-error-container"></span>
+                                        Low Stock
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="font-bold text-error">42 units</p>
+<p class="text-[10px] text-on-surface-variant">Keys Remaining</p>
+</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface">$12.50</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-lg text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary font-bold">C</div>
+<div>
+<p class="font-bold text-on-surface">CloudScale Hosting</p>
+<p class="text-xs text-on-surface-variant">SKU: CLD-2201</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">Infrastructure</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-surface-container-highest text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span>
+                                        Inactive
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="font-bold text-on-surface-variant">0 units</p>
+<p class="text-[10px] text-on-surface-variant">Maintenance</p>
+</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface-variant">$89.00</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-lg text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary font-bold">N</div>
+<div>
+<p class="font-bold text-on-surface">Nexus CRM Enterprise</p>
+<p class="text-xs text-on-surface-variant">SKU: NEX-1100</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface">SaaS / CRM</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container text-on-primary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary-container"></span>
+                                        Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<p class="font-bold text-on-surface">500+ slots</p>
+<p class="text-[10px] text-on-surface-variant">Seat Based</p>
+</td>
+<td class="px-6 py-4 text-right font-bold text-on-surface">$1,450.00</td>
+<td class="px-6 py-4">
+<div class="flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1.5 hover:bg-error-container/20 rounded-lg text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<footer class="px-6 py-4 bg-surface-container-low/50 flex items-center justify-between border-t border-outline-variant/10">
+<span class="text-sm text-on-surface-variant">Showing 1 to 4 of 1,284 results</span>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center bg-primary text-on-primary rounded-lg text-sm font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-high rounded-lg text-sm font-semibold text-on-surface-variant">2</button>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-high rounded-lg text-sm font-semibold text-on-surface-variant">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-8 h-8 flex items-center justify-center hover:bg-surface-container-high rounded-lg text-sm font-semibold text-on-surface-variant">321</button>
+</div>
+<button class="p-2 hover:bg-surface-container-high rounded-lg text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</footer>
+</div>
+<!-- Contextual Card / Featured Offer -->
+<div class="mt-12 p-8 rounded-2xl bg-gradient-to-r from-secondary-container/30 to-primary-container/20 border border-outline-variant/10 relative overflow-hidden group">
+<div class="relative z-10 max-w-2xl">
+<h2 class="text-2xl font-black text-on-surface mb-2">Automate Your Inventory Sync</h2>
+<p class="text-on-surface-variant mb-6 text-lg leading-relaxed">Connect your storefront to LedgerOS and let our AI handle stock forecasting, automated price adjustments, and multi-channel reporting.</p>
+<button class="px-6 py-3 bg-on-surface text-surface rounded-xl font-bold flex items-center gap-2 hover:scale-[1.02] transition-transform shadow-xl shadow-on-surface/10">
+                        Explore Integrations
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute -right-12 -bottom-12 w-64 h-64 bg-primary/10 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-700"></div>
+<div class="absolute right-12 top-1/2 -translate-y-1/2 hidden lg:block opacity-20 group-hover:opacity-40 transition-opacity">
+<span class="material-symbols-outlined text-[120px] text-primary" data-icon="hub" style="font-variation-settings: 'FILL' 1;">hub</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB (Suppressing as per mandate on details-heavy views, but showing here since it matches Global Inventory action) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+</button>
+</body></html>

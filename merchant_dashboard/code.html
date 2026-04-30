@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Merchant Dashboard | Asha Pure Merchant</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../shared/app.css" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#206223",
+        "primary-container": "#3a7b3a",
+        surface: "#f9f9f9",
+        "surface-container": "#eeeeee",
+        "surface-container-low": "#f3f3f3",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed": "#cfe6f2",
+        "tertiary-fixed": "#ffd9e2",
+        "error-container": "#ffdad6"
+      },
+      fontFamily: {
+        headline: ["Manrope"],
+        body: ["Inter"]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body text-slate-900">
+<aside class="fixed left-0 top-0 flex h-full w-64 flex-col overflow-y-auto bg-[#f9f9f9] shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+  <div class="p-8">
+    <div class="font-headline text-2xl font-black text-primary">Asha Pure Merchant</div>
+    <div class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500" data-merchant-name>Merchant Name</div>
+  </div>
+  <nav class="flex-1 px-4 space-y-1">
+    <a class="flex items-center gap-3 rounded-r-full bg-stone-200 px-4 py-3 text-sm font-bold text-primary" href="../merchant_dashboard/code.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../inventory_management/code.html"><span class="material-symbols-outlined">inventory_2</span>Inventory</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../orders_management/code.html"><span class="material-symbols-outlined">shopping_cart</span>Orders</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../earnings_payouts/code.html"><span class="material-symbols-outlined">payments</span>Earnings</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../approval_status/code.html"><span class="material-symbols-outlined">verified_user</span>KYC Documents</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../settings/code.html"><span class="material-symbols-outlined">settings</span>Settings</a>
+  </nav>
+</aside>
+
+<header class="fixed left-64 right-0 top-0 z-30 flex items-center justify-between bg-[#f9f9f9]/90 px-8 py-4 backdrop-blur-xl">
+  <div>
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">Presentation Dashboard</p>
+    <h1 class="font-headline text-2xl font-extrabold">Merchant Overview</h1>
+  </div>
+  <div class="text-right">
+    <div class="text-sm font-bold text-primary" data-user-name>Merchant Name</div>
+    <div class="app-status-badge" data-kyc-status data-status="not_started">KYC Pending</div>
+  </div>
+</header>
+
+<main class="ml-64 mt-24 p-8">
+  <section class="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-3xl bg-gradient-to-br from-primary to-primary-container px-8 py-7 text-white shadow-lg shadow-primary/20">
+    <div>
+      <p class="text-xs uppercase tracking-[0.2em] text-white/70">Live Demo Merchant</p>
+      <h2 id="heroTitle" class="mt-2 font-headline text-3xl font-extrabold">Asha Pure Merchant</h2>
+      <p id="heroCopy" class="mt-2 max-w-2xl text-sm text-white/80">Dashboard values below are fetched from seeded database records connected to orders, products, customers, KYC, and transactions.</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a class="rounded-xl bg-white px-5 py-3 text-sm font-bold text-primary" href="../products_list/code.html">Products</a>
+      <a class="rounded-xl border border-white/30 px-5 py-3 text-sm font-bold text-white" href="../profile_settings/code.html">Customers</a>
+      <a class="rounded-xl border border-white/30 px-5 py-3 text-sm font-bold text-white" href="../notifications/code.html">Transactions</a>
+      <a class="rounded-xl border border-white/30 px-5 py-3 text-sm font-bold text-white" href="../states_errors/code.html">Reports</a>
+    </div>
+  </section>
+
+  <section id="summaryCards" class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-6"></section>
+
+  <section class="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-[1.3fr_0.7fr]">
+    <div class="space-y-6">
+      <div class="rounded-3xl bg-white p-6 shadow-sm">
+        <div class="mb-5 flex items-center justify-between">
+          <div>
+            <h3 class="font-headline text-xl font-bold">Recent Orders</h3>
+            <p class="text-sm text-slate-500">Latest database-backed orders for this merchant.</p>
+          </div>
+          <a class="text-sm font-bold text-primary" href="../orders_management/code.html">View All</a>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse text-left">
+            <thead>
+              <tr class="border-b border-slate-200 text-[11px] uppercase tracking-[0.2em] text-slate-500">
+                <th class="pb-4">Order</th>
+                <th class="pb-4">Customer</th>
+                <th class="pb-4">Date</th>
+                <th class="pb-4">Status</th>
+                <th class="pb-4 text-right">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="recentOrdersRows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="rounded-3xl bg-white p-6 shadow-sm">
+          <div class="mb-5 flex items-center justify-between">
+            <div>
+              <h3 class="font-headline text-xl font-bold">Customers Snapshot</h3>
+              <p class="text-sm text-slate-500">Top ordering customers loaded from the DB.</p>
+            </div>
+            <a class="text-sm font-bold text-primary" href="../profile_settings/code.html">Open</a>
+          </div>
+          <div id="topCustomersList" class="space-y-3"></div>
+        </div>
+
+        <div class="rounded-3xl bg-white p-6 shadow-sm">
+          <div class="mb-5 flex items-center justify-between">
+            <div>
+              <h3 class="font-headline text-xl font-bold">Transaction Pulse</h3>
+              <p class="text-sm text-slate-500">Recent payments and pending collections.</p>
+            </div>
+            <a class="text-sm font-bold text-primary" href="../notifications/code.html">Open</a>
+          </div>
+          <div id="transactionsList" class="space-y-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      <div class="rounded-3xl bg-white p-6 shadow-sm">
+        <div class="mb-5 flex items-center justify-between">
+          <div>
+            <h3 class="font-headline text-xl font-bold">Revenue Trend</h3>
+            <p class="text-sm text-slate-500">Daily transaction totals from analytics.</p>
+          </div>
+          <a class="text-sm font-bold text-primary" href="../states_errors/code.html">Reports</a>
+        </div>
+        <div id="revenueTrend" class="space-y-4"></div>
+      </div>
+
+      <div class="rounded-3xl bg-white p-6 shadow-sm">
+        <div class="mb-5 flex items-center justify-between">
+          <div>
+            <h3 class="font-headline text-xl font-bold">Low Stock Watch</h3>
+            <p class="text-sm text-slate-500">Products that need restocking soon.</p>
+          </div>
+          <a class="text-sm font-bold text-primary" href="../inventory_management/code.html">Inventory</a>
+        </div>
+        <div id="lowStockList" class="space-y-3"></div>
+      </div>
+
+      <div class="rounded-3xl bg-secondary-fixed p-6 shadow-sm">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-600">Presentation Readiness</p>
+        <div id="readinessList" class="mt-4 space-y-3 text-sm text-slate-700"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="../shared/app.js"></script>
+<script>
+function statusBadgeClasses(status) {
+  if (status === "Pending") {
+    return "bg-amber-100 text-amber-800";
+  }
+  if (status === "Cancelled") {
+    return "bg-error-container text-red-700";
+  }
+  return "bg-green-100 text-green-700";
+}
+
+function renderSummary(summary) {
+  const cards = [
+    { label: "Total Revenue", value: AppShell.formatCurrency(summary.totalRevenue), tone: "bg-white" },
+    { label: "Total Orders", value: summary.totalOrders || 0, tone: "bg-white" },
+    { label: "Pending Orders", value: summary.pendingOrders || 0, tone: "bg-white" },
+    { label: "Active Products", value: summary.activeProducts || 0, tone: "bg-white" },
+    { label: "Low Stock", value: summary.lowStockItems || 0, tone: "bg-tertiary-fixed" },
+    { label: "Customers", value: summary.customerCount || 0, tone: "bg-secondary-fixed" }
+  ];
+
+  document.getElementById("summaryCards").innerHTML = cards.map((card) => `
+    <article class="${card.tone} rounded-3xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">${card.label}</p>
+      <p class="mt-4 font-headline text-3xl font-extrabold">${card.value}</p>
+    </article>
+  `).join("");
+}
+
+function renderRecentOrders(orders) {
+  const rows = orders.length ? orders.map((order) => `
+    <tr class="border-b border-slate-100">
+      <td class="py-4 text-sm font-semibold">${order.orderId}</td>
+      <td class="py-4 text-sm">${order.customerName}</td>
+      <td class="py-4 text-sm">${AppShell.formatDate(order.date)}</td>
+      <td class="py-4 text-sm"><span class="rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${statusBadgeClasses(order.status)}">${order.status}</span></td>
+      <td class="py-4 text-right text-sm font-bold">${AppShell.formatCurrency(order.amount)}</td>
+    </tr>
+  `).join("") : `<tr><td colspan="5">${AppShell.buildEmptyState("No orders found", "Orders will appear here after they are saved in the database.", "receipt_long")}</td></tr>`;
+
+  document.getElementById("recentOrdersRows").innerHTML = rows;
+}
+
+function renderTopCustomers(customers) {
+  const container = document.getElementById("topCustomersList");
+  if (!customers.length) {
+    container.innerHTML = AppShell.buildEmptyState("No customers found", "Customer records will appear here once orders are created.", "groups");
+    return;
+  }
+
+  container.innerHTML = customers.slice(0, 5).map((customer) => `
+    <article class="rounded-2xl bg-surface-container-low p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="text-sm font-bold">${customer.name}</p>
+          <p class="text-xs text-slate-500">${customer.city} • ${customer.phone}</p>
+        </div>
+        <span class="rounded-full bg-white px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary">${customer.totalOrders} orders</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderTransactions(transactions) {
+  const container = document.getElementById("transactionsList");
+  if (!transactions.length) {
+    container.innerHTML = AppShell.buildEmptyState("No transactions found", "Payment records will appear here once transactions are saved in the database.", "payments");
+    return;
+  }
+
+  container.innerHTML = transactions.slice(0, 5).map((item) => `
+    <article class="rounded-2xl bg-surface-container-low p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="text-sm font-bold">${item.transactionId}</p>
+          <p class="text-xs text-slate-500">${item.customerName} • ${item.paymentMethod}</p>
+        </div>
+        <div class="text-right">
+          <p class="text-sm font-bold">${AppShell.formatCurrency(item.amount)}</p>
+          <p class="text-[10px] font-bold uppercase tracking-wider ${item.status === "Paid" ? "text-primary" : "text-amber-700"}">${item.status}</p>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderRevenueTrend(revenueByDay) {
+  const entries = Object.entries(revenueByDay).slice(-7);
+  const container = document.getElementById("revenueTrend");
+
+  if (!entries.length) {
+    container.innerHTML = AppShell.buildEmptyState("No revenue trend yet", "Revenue bars will appear when transaction history is available.", "monitoring");
+    return;
+  }
+
+  const maxValue = Math.max(...entries.map(([, amount]) => amount), 1);
+  container.innerHTML = entries.map(([day, amount]) => `
+    <div>
+      <div class="mb-2 flex items-center justify-between text-sm">
+        <span class="font-semibold">${AppShell.formatDate(day)}</span>
+        <span class="text-slate-500">${AppShell.formatCurrency(amount)}</span>
+      </div>
+      <div class="h-3 overflow-hidden rounded-full bg-surface-container-low">
+        <div class="h-full rounded-full bg-gradient-to-r from-primary to-primary-container" style="width:${Math.max((amount / maxValue) * 100, 8)}%"></div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function renderLowStock(items) {
+  const container = document.getElementById("lowStockList");
+  if (!items.length) {
+    container.innerHTML = AppShell.buildEmptyState("Inventory looks healthy", "No products are currently in the low-stock range.", "inventory");
+    return;
+  }
+
+  container.innerHTML = items.map((item) => `
+    <article class="rounded-2xl bg-surface-container-low p-4">
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <p class="text-sm font-bold">${item.productName}</p>
+          <p class="text-xs text-slate-500">Needs replenishment for upcoming orders</p>
+        </div>
+        <span class="rounded-full bg-error-container px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-red-700">${item.stockQuantity} left</span>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderReadiness(summary, kycStatus) {
+  const checks = [
+    { label: "Login-ready merchant account", complete: true },
+    { label: "Seeded revenue and transaction history", complete: (summary.transactionCount || 0) > 0 },
+    { label: "Orders connected to customers and products", complete: (summary.totalOrders || 0) > 0 && (summary.customerCount || 0) > 0 },
+    { label: "KYC verification available", complete: kycStatus === "verified" },
+    { label: "Inventory stocked for product demos", complete: (summary.activeProducts || 0) > 0 }
+  ];
+
+  document.getElementById("readinessList").innerHTML = checks.map((item) => `
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined ${item.complete ? "text-primary" : "text-slate-400"}">${item.complete ? "check_circle" : "radio_button_unchecked"}</span>
+      <span class="font-medium">${item.label}</span>
+    </div>
+  `).join("");
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const { merchant, kyc } = await AppShell.bootstrap();
+
+  if (!merchant?.merchantId) {
+    window.location.href = "../merchant_onboarding/code.html";
+    return;
+  }
+
+  document.getElementById("heroTitle").textContent = merchant.businessName || "Asha Pure Merchant";
+
+  const [dashboard, analytics] = await Promise.all([
+    AppShell.fetchJson(`/dashboard/${merchant.merchantId}`).catch(() => null),
+    AppShell.fetchJson(`/analytics/${merchant.merchantId}`).catch(() => null)
+  ]);
+
+  if (!dashboard) {
+    document.getElementById("summaryCards").innerHTML = AppShell.buildEmptyState("Dashboard unavailable", "Unable to fetch merchant dashboard data from the database.", "error");
+    return;
+  }
+
+  renderSummary(dashboard.summary || {});
+  renderRecentOrders(dashboard.recentOrders || []);
+  renderTopCustomers(dashboard.customers || []);
+  renderTransactions(dashboard.transactions || []);
+  renderRevenueTrend(analytics?.revenueByDay || {});
+  renderLowStock(analytics?.lowStockProducts || []);
+  renderReadiness(dashboard.summary || {}, kyc?.status || "not_started");
+});
+</script>
+</body>
+</html>

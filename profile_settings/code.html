@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customers | Asha Pure Merchant</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="../shared/app.css" rel="stylesheet"/>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#206223",
+        "primary-container": "#3a7b3a",
+        surface: "#f9f9f9",
+        "surface-container-low": "#f3f3f3",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed": "#cfe6f2",
+        "tertiary-fixed": "#ffd9e2"
+      },
+      fontFamily: {
+        headline: ["Manrope"],
+        body: ["Inter"]
+      }
+    }
+  }
+};
+</script>
+</head>
+<body class="bg-surface font-body text-slate-900">
+<aside class="fixed left-0 top-0 flex h-full w-64 flex-col overflow-y-auto bg-[#f9f9f9] shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+  <div class="p-8">
+    <div class="font-headline text-2xl font-black text-primary">Asha Pure Merchant</div>
+    <div class="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500" data-merchant-name>Merchant Name</div>
+  </div>
+  <nav class="flex-1 px-4 space-y-1">
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../merchant_dashboard/code.html"><span class="material-symbols-outlined">dashboard</span>Dashboard</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../products_list/code.html"><span class="material-symbols-outlined">category</span>Products</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../orders_management/code.html"><span class="material-symbols-outlined">shopping_cart</span>Orders</a>
+    <a class="flex items-center gap-3 rounded-r-full bg-stone-200 px-4 py-3 text-sm font-bold text-primary" href="../profile_settings/code.html"><span class="material-symbols-outlined">groups</span>Customers</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../notifications/code.html"><span class="material-symbols-outlined">payments</span>Transactions</a>
+    <a class="flex items-center gap-3 rounded-r-full px-4 py-3 text-sm font-medium text-slate-600" href="../states_errors/code.html"><span class="material-symbols-outlined">insights</span>Reports</a>
+  </nav>
+</aside>
+
+<header class="fixed left-64 right-0 top-0 z-30 flex items-center justify-between bg-[#f9f9f9]/90 px-8 py-4 backdrop-blur-xl">
+  <div>
+    <p class="text-xs uppercase tracking-[0.2em] text-slate-500">CRM</p>
+    <h1 class="font-headline text-2xl font-extrabold">Customers</h1>
+  </div>
+  <div class="text-right">
+    <div class="text-sm font-bold text-primary" data-user-name>Merchant Name</div>
+    <div class="app-status-badge" data-kyc-status data-status="not_started">KYC Pending</div>
+  </div>
+</header>
+
+<main class="ml-64 mt-24 p-8">
+  <section id="customerSummary" class="grid grid-cols-1 gap-4 md:grid-cols-4"></section>
+
+  <section class="mt-8 rounded-3xl bg-white p-6 shadow-sm">
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="font-headline text-xl font-bold">Customer Directory</h2>
+        <p class="text-sm text-slate-500">Customers are calculated from the seeded merchant records and linked orders.</p>
+      </div>
+      <input id="customerSearch" class="w-72 rounded-xl border-0 bg-surface-container-low px-4 py-3 text-sm" placeholder="Search by name, phone, or city" type="text"/>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse text-left">
+        <thead>
+          <tr class="border-b border-slate-200 text-[11px] uppercase tracking-[0.2em] text-slate-500">
+            <th class="pb-4">Customer</th>
+            <th class="pb-4">City</th>
+            <th class="pb-4">Phone</th>
+            <th class="pb-4 text-right">Total Orders</th>
+            <th class="pb-4 text-right">Order Value</th>
+          </tr>
+        </thead>
+        <tbody id="customerRows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="../shared/app.js"></script>
+<script>
+let customers = [];
+let orders = [];
+
+function getCustomerSpend(customerId) {
+  return orders
+    .filter((order) => order.customerId === customerId && order.status !== "Cancelled")
+    .reduce((sum, order) => sum + Number(order.amount || 0), 0);
+}
+
+function renderSummary() {
+  const customerCount = customers.length;
+  const repeatCustomers = customers.filter((item) => Number(item.totalOrders || 0) > 1).length;
+  const cities = new Set(customers.map((item) => item.city).filter(Boolean)).size;
+  const totalOrderValue = customers.reduce((sum, customer) => sum + getCustomerSpend(customer.customerId), 0);
+  const cards = [
+    { label: "Customer Count", value: customerCount, tone: "bg-white" },
+    { label: "Repeat Buyers", value: repeatCustomers, tone: "bg-secondary-fixed" },
+    { label: "Cities Covered", value: cities, tone: "bg-white" },
+    { label: "Order Value", value: AppShell.formatCurrency(totalOrderValue), tone: "bg-tertiary-fixed" }
+  ];
+
+  document.getElementById("customerSummary").innerHTML = cards.map((card) => `
+    <article class="${card.tone} rounded-3xl p-6 shadow-sm">
+      <p class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">${card.label}</p>
+      <p class="mt-4 font-headline text-3xl font-extrabold">${card.value}</p>
+    </article>
+  `).join("");
+}
+
+function renderCustomers() {
+  const search = document.getElementById("customerSearch").value.trim().toLowerCase();
+  const rows = customers.filter((customer) => {
+    const haystack = `${customer.name} ${customer.phone} ${customer.city}`.toLowerCase();
+    return !search || haystack.includes(search);
+  });
+
+  const tbody = document.getElementById("customerRows");
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="5">${AppShell.buildEmptyState("No matching customers", "Try a different search keyword to locate a customer.", "groups")}</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = rows.map((customer) => `
+    <tr class="border-b border-slate-100">
+      <td class="py-4">
+        <p class="text-sm font-bold">${customer.name}</p>
+        <p class="text-xs text-slate-500">Customer ID: ${customer.customerId}</p>
+      </td>
+      <td class="py-4 text-sm">${customer.city || "--"}</td>
+      <td class="py-4 text-sm">${customer.phone || "--"}</td>
+      <td class="py-4 text-right text-sm font-bold">${customer.totalOrders || 0}</td>
+      <td class="py-4 text-right text-sm font-bold">${AppShell.formatCurrency(getCustomerSpend(customer.customerId))}</td>
+    </tr>
+  `).join("");
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await AppShell.bootstrap();
+  const merchant = AppShell.getStoredMerchantProfile();
+
+  if (!merchant?.merchantId) {
+    window.location.href = "../merchant_onboarding/code.html";
+    return;
+  }
+
+  const [customerData, orderData] = await Promise.all([
+    AppShell.fetchJson(`/customers?merchantId=${merchant.merchantId}`).catch(() => []),
+    AppShell.fetchJson(`/orders?merchantId=${merchant.merchantId}`).catch(() => [])
+  ]);
+
+  customers = customerData;
+  orders = orderData;
+  renderSummary();
+  renderCustomers();
+
+  document.getElementById("customerSearch").addEventListener("input", renderCustomers);
+});
+</script>
+</body>
+</html>

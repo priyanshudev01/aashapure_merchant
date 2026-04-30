@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Merchant Approval Status | Asha Pure Merchant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../shared/app.css" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#b14b6f",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#2a6b2c",
+                    "secondary": "#4c616c",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-surface-variant": "#40493d",
+                    "tertiary": "#923357",
+                    "surface-container-low": "#f3f3f3",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "primary": "#206223",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ffedf0",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#707a6c",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed": "#002203",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary-fixed-dim": "#91d78a",
+                    "inverse-surface": "#2f3131",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#526772",
+                    "inverse-primary": "#91d78a",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#3f001c",
+                    "on-primary-fixed-variant": "#0c5216",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "background": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#7f2448",
+                    "on-secondary-fixed": "#071e27",
+                    "primary-fixed": "#acf4a4",
+                    "tertiary-fixed": "#ffd9e2",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#1a1c1c",
+                    "secondary-container": "#cfe6f2",
+                    "on-primary-container": "#cbffc2",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "primary-container": "#3a7b3a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Shell Layout Wrapper -->
+<div class="flex min-h-screen">
+<!-- SideNavBar - Identity Anchor -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 h-screen w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-8">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500 font-headline">Asha Pure Merchant</h1>
+<p class="text-xs font-inter font-medium text-stone-500 mt-1 uppercase tracking-widest" data-merchant-name>Merchant Name</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined mr-3">inventory_2</span> Inventory
+                </a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined mr-3">shopping_cart</span> Orders
+                </a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined mr-3">payments</span> Earnings
+                </a>
+<a class="flex items-center px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full font-inter text-sm" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span> KYC Documents
+                </a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors font-inter text-sm font-medium hover:bg-stone-100 dark:hover:bg-stone-900 rounded-r-full" href="#">
+<span class="material-symbols-outlined mr-3">settings</span> Settings
+                </a>
+</nav>
+<div class="mt-auto p-4 space-y-2 mb-4">
+<a class="flex items-center px-4 py-2 text-stone-500 text-xs font-medium hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg mr-2">help</span> Help Center
+                </a>
+<a class="flex items-center px-4 py-2 text-stone-500 text-xs font-medium hover:text-error transition-all" href="#">
+<span class="material-symbols-outlined text-lg mr-2">logout</span> Logout
+                </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 bg-surface min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl transition-all duration-300 ease-in-out">
+<div class="hidden items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20 w-64 transition-all" placeholder="Search records..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-all">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold font-headline text-on-surface" data-user-name>Merchant Name</p>
+<p class="app-status-badge" data-kyc-status data-status="not_started">KYC Pending</p>
+</div>
+</div>
+</div>
+</header>
+<div class="px-12 py-12 max-w-6xl mx-auto">
+<!-- Page Title Section -->
+<div class="mb-12">
+<h2 class="text-display-lg font-headline font-extrabold text-on-surface tracking-tight leading-none mb-2">Account Status</h2>
+<p class="text-on-surface-variant font-body">Verification tracking for your merchant profile</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Status Banner (Bento 8x4) -->
+<section class="col-span-12 lg:col-span-8 space-y-8">
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl p-8 shadow-[24px_0_40px_rgba(26,28,28,0.06)] border-l-8 border-tertiary-container">
+<div class="absolute top-0 right-0 -mt-12 -mr-12 w-48 h-48 bg-tertiary/5 rounded-full blur-3xl"></div>
+<div class="relative flex items-start gap-6">
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-4 rounded-xl">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">pending_actions</span>
+</div>
+<div class="flex-1">
+<span id="mainStatusBadge" class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 inline-block">Under Review</span>
+<h3 id="mainStatusTitle" class="text-3xl font-headline font-bold text-on-surface mb-3">Your application is being verified</h3>
+<p id="mainStatusCopy" class="text-on-surface-variant leading-relaxed max-w-xl">
+                                        We are currently reviewing your identity and bank verification documents. This process typically takes 2-3 business days.
+                                    </p>
+</div>
+</div>
+<!-- Progress Indicator -->
+<div class="mt-10 pt-8 border-t border-outline-variant/10">
+<div class="flex justify-between items-center mb-4">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Application Progress</span>
+<span id="progressLabel" class="text-xs font-bold text-tertiary">75% Complete</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div id="progressBar" class="h-full bg-gradient-to-r from-tertiary to-tertiary-container w-3/4 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Detailed Breakdown (Glassmorphism Section) -->
+<div class="glass-panel rounded-xl p-10 shadow-sm border-l border-t border-white/40">
+<h4 class="text-xl font-headline font-bold text-on-surface mb-8">Verification Checklist</h4>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-4 bg-primary/5 rounded-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Identity Verification</p>
+<p class="text-xs text-on-surface-variant">Aadhar and PAN card successfully validated</p>
+</div>
+</div>
+<span id="identityStatus" class="text-[10px] font-bold text-primary-container bg-primary-fixed px-3 py-1 rounded-full uppercase tracking-tighter">Verified</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-primary/5 rounded-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Store Setup</p>
+<p class="text-xs text-on-surface-variant">Business address and warehouse details logged</p>
+</div>
+</div>
+<span id="storeStatus" class="text-[10px] font-bold text-primary-container bg-primary-fixed px-3 py-1 rounded-full uppercase tracking-tighter">Verified</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-tertiary/5 rounded-xl border border-tertiary/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary animate-pulse">hourglass_top</span>
+<div>
+<p class="text-sm font-bold text-on-surface">FSSAI Certification</p>
+<p class="text-xs text-on-surface-variant">Validating certificate number with central registry</p>
+</div>
+</div>
+<span id="documentStatus" class="text-[10px] font-bold text-on-tertiary-container bg-tertiary-fixed px-3 py-1 rounded-full uppercase tracking-tighter">In Progress</span>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-outline">pending</span>
+<div>
+<p class="text-sm font-bold text-on-surface-variant">Bank Mandate</p>
+<p class="text-xs text-on-surface-variant">Awaiting penny-drop verification from your bank</p>
+</div>
+</div>
+<span id="bankStatus" class="text-[10px] font-bold text-on-surface-variant bg-surface-container-high px-3 py-1 rounded-full uppercase tracking-tighter">Waiting</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Actions (Bento 4x4) -->
+<aside class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Action Card -->
+<div class="bg-surface-container-highest rounded-xl p-8 flex flex-col gap-6">
+<h5 class="text-sm font-inter font-extrabold uppercase tracking-widest text-on-surface-variant">Required Actions</h5>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                While we review your profile, you can still finalize your delivery routes or contact our merchant success team.
+                            </p>
+<div class="space-y-3">
+<a id="supportLink" href="../merchant_onboarding/settlement.html" class="w-full py-4 px-6 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">support_agent</span>
+                                    Continue Setup
+                                </a>
+<a id="resubmitLink" href="../merchant_onboarding/kyc.html" class="w-full py-4 px-6 bg-surface-container-lowest text-primary font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-white transition-all shadow-sm">
+<span class="material-symbols-outlined">edit_document</span>
+                                    Re-submit Documents
+                                </a>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<p class="text-[10px] text-on-surface-variant text-center leading-tight">
+                                    Need help with FSSAI registration? <br/>
+<a class="text-primary font-bold underline" href="#">Visit Help Center</a>
+</p>
+</div>
+</div>
+<!-- Secondary Insight Card -->
+<div class="bg-surface-container-low rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/5 rounded-full transition-transform group-hover:scale-125 duration-500"></div>
+<h5 class="text-sm font-inter font-extrabold uppercase tracking-widest text-on-surface-variant mb-6">Pro Tip</h5>
+<div class="relative">
+<p class="text-lg font-headline font-bold text-on-surface leading-tight mb-3">Complete your Inventory early.</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                                    Merchants who pre-list at least 10 products go live 40% faster once approved.
+                                </p>
+<a class="mt-4 inline-flex items-center text-primary font-bold text-sm gap-2" href="#">
+                                    Go to Inventory <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="rounded-xl border border-outline-variant/10 bg-surface-container-lowest p-6 shadow-sm">
+<p class="text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant">Merchant</p>
+<p class="mt-3 text-lg font-bold text-on-surface" data-user-name>Aman</p>
+<p class="mt-1 text-sm text-on-surface-variant" data-merchant-name>Asha Pure Merchant</p>
+</div>
+</aside>
+</div>
+</div>
+<!-- Footer Tonal Section -->
+<footer class="mt-24 bg-surface-container-low px-12 py-16 border-t border-outline-variant/10">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-xs">
+<h6 class="text-xl font-headline font-black text-primary mb-4">Asha Pure Merchant</h6>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Empowering the next generation of dairy merchants with precision tools and artisanal care.
+                        </p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="space-y-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Resources</p>
+<ul class="text-sm text-on-surface space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">Merchant Guide</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Documentation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tax Calculator</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Company</p>
+<ul class="text-sm text-on-surface space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">About Aasapure</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Support</p>
+<ul class="text-sm text-on-surface space-y-2">
+<li><a class="hover:text-primary transition-colors" href="#">24/7 Hotline</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Status Page</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Live Chat</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-6xl mx-auto mt-16 pt-8 border-t border-outline-variant/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">
+<p>© 2024 Asha Pure Merchant. All Rights Reserved.</p>
+<p>Designed with Intentional Asymmetry</p>
+</div>
+</footer>
+</main>
+</div>
+<script src="../shared/app.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { merchant, kyc } = await AppShell.bootstrap();
+  if (!merchant?.merchantId) {
+    return;
+  }
+
+  const settlement = await AppShell.fetchJson(`/settlement/${merchant.merchantId}`).catch(() => null);
+  const status = kyc?.status || "not_started";
+
+  const mainStatusBadge = document.getElementById("mainStatusBadge");
+  const mainStatusTitle = document.getElementById("mainStatusTitle");
+  const mainStatusCopy = document.getElementById("mainStatusCopy");
+  const progressLabel = document.getElementById("progressLabel");
+  const progressBar = document.getElementById("progressBar");
+  const documentStatus = document.getElementById("documentStatus");
+  const bankStatus = document.getElementById("bankStatus");
+  const supportLink = document.getElementById("supportLink");
+  const resubmitLink = document.getElementById("resubmitLink");
+
+  if (status === "verified") {
+    mainStatusBadge.textContent = "Verified";
+    mainStatusTitle.textContent = "Your merchant account is verified";
+    mainStatusCopy.textContent = "Your KYC and bank setup are complete. You can continue using orders, inventory, and payouts normally.";
+    progressLabel.textContent = "100% Complete";
+    progressBar.className = "h-full bg-gradient-to-r from-primary to-primary-container w-full rounded-full";
+    documentStatus.textContent = "Verified";
+    bankStatus.textContent = settlement ? "Verified" : "Pending";
+    supportLink.textContent = "Go to Dashboard";
+    supportLink.href = "../merchant_dashboard/code.html";
+    resubmitLink.classList.add("hidden");
+  } else if (status === "under_review") {
+    mainStatusBadge.textContent = "Under Review";
+    mainStatusTitle.textContent = "Your application is being verified";
+    mainStatusCopy.textContent = "Your documents have already been submitted and are under review. You do not need to upload them again.";
+    progressLabel.textContent = settlement ? "90% Complete" : "75% Complete";
+    documentStatus.textContent = "In Progress";
+    bankStatus.textContent = settlement ? "Submitted" : "Waiting";
+    supportLink.textContent = settlement ? "Go to Dashboard" : "Continue Setup";
+    supportLink.href = settlement ? "../merchant_dashboard/code.html" : "../merchant_onboarding/settlement.html";
+  } else {
+    mainStatusBadge.textContent = "Pending";
+    mainStatusTitle.textContent = "Finish your verification setup";
+    mainStatusCopy.textContent = "Upload your KYC documents and add settlement details to activate payouts and order handling.";
+    progressLabel.textContent = "25% Complete";
+    progressBar.className = "h-full bg-gradient-to-r from-tertiary to-tertiary-container w-1/4 rounded-full";
+    documentStatus.textContent = "Pending";
+    bankStatus.textContent = settlement ? "Submitted" : "Waiting";
+  }
+});
+</script>
+</body></html>
+

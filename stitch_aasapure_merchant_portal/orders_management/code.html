@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#e8e8e8",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#b14b6f",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#2a6b2c",
+                    "secondary": "#4c616c",
+                    "secondary-fixed": "#cfe6f2",
+                    "on-surface-variant": "#40493d",
+                    "tertiary": "#923357",
+                    "surface-container-low": "#f3f3f3",
+                    "error-container": "#ffdad6",
+                    "on-background": "#1a1c1c",
+                    "primary": "#206223",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-container": "#ffedf0",
+                    "surface-container-highest": "#e2e2e2",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#707a6c",
+                    "on-tertiary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "surface": "#f9f9f9",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary-fixed": "#002203",
+                    "on-secondary-fixed-variant": "#354a53",
+                    "inverse-on-surface": "#f1f1f1",
+                    "primary-fixed-dim": "#91d78a",
+                    "inverse-surface": "#2f3131",
+                    "on-error-container": "#93000a",
+                    "on-secondary-container": "#526772",
+                    "inverse-primary": "#91d78a",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed": "#3f001c",
+                    "on-primary-fixed-variant": "#0c5216",
+                    "secondary-fixed-dim": "#b4cad6",
+                    "background": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#7f2448",
+                    "on-secondary-fixed": "#071e27",
+                    "primary-fixed": "#acf4a4",
+                    "tertiary-fixed": "#ffd9e2",
+                    "outline-variant": "#bfcaba",
+                    "on-surface": "#1a1c1c",
+                    "secondary-container": "#cfe6f2",
+                    "on-primary-container": "#cbffc2",
+                    "tertiary-fixed-dim": "#ffb1c7",
+                    "primary-container": "#3a7b3a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9f9f9;
+        color: #1a1c1c;
+      }
+      h1, h2, h3 {
+        font-family: 'Manrope', sans-serif;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 h-screen w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-6">
+<div class="text-2xl font-black text-[#206223] dark:text-green-500 mb-1">The Tactile Ledger</div>
+<div class="text-xs font-inter font-medium text-stone-500 uppercase tracking-widest">Aasapure Merchant</div>
+</div>
+<nav class="flex-1 mt-4">
+<!-- Dashboard -->
+<a class="flex items-center px-6 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-900 group" href="../merchant_dashboard/code.html">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-inter text-sm font-medium">Dashboard</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center px-6 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-900 group" href="../inventory_management/code.html">
+<span class="material-symbols-outlined mr-3">inventory_2</span>
+<span class="font-inter text-sm font-medium">Inventory</span>
+</a>
+<!-- Orders (ACTIVE) -->
+<a class="flex items-center px-6 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full group transition-transform active:scale-95" href="../orders_management/code.html">
+<span class="material-symbols-outlined mr-3">shopping_cart</span>
+<span class="font-inter text-sm">Orders</span>
+</a>
+<!-- Earnings -->
+<a class="flex items-center px-6 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-900 group" href="../earnings_payouts/code.html">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="font-inter text-sm font-medium">Earnings</span>
+</a>
+<!-- KYC -->
+<a class="flex items-center px-6 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-900 group" href="../merchant_onboarding/kyc.html"> >
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="font-inter text-sm font-medium">KYC Documents</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center px-6 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-all duration-200 hover:bg-stone-100 dark:hover:bg-stone-900 group" href="../settings/code.html">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-inter text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-6 space-y-4">
+
+<a href="../add_edit_product/code.html" class="w-full bg-primary text-on-primary py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-sm hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+<span class="font-inter text-sm">New Product</span>
+</a>
+
+<div class="pt-4 border-t border-stone-200/50">
+
+<a class="flex items-center text-stone-600 text-sm font-medium py-2 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+Help Center
+</a>
+
+<a class="flex items-center text-stone-600 text-sm font-medium py-2 hover:text-error transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+Logout
+</a>
+
+</div>
+</div>
+
+</aside>
+<!-- TopNavBar Shell -->
+<header class="flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex items-center flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400 text-xl">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 placeholder-stone-400 transition-all" placeholder="Search orders, customers, or IDs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-stone-500 hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-stone-500 hover:text-primary transition-colors">history</button>
+</div>
+<div class="h-8 w-[1px] bg-stone-200"></div>
+<div class="flex items-center gap-3">
+<span class="bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border border-primary/20">Merchant Verified</span>
+<img alt="Merchant Profile Image" class="w-10 h-10 rounded-full object-cover border-2 border-primary/10" data-alt="professional portrait of a middle-aged male dairy merchant in a clean white shirt with soft natural office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfsTJItEMwFvyX-9nnfN-ngo_vvzb8_HFR4bTn0zrOkZHEJeugWAIxa_VFG2T1Rk26QMTxPjCLTFky4-Y-s1qsAYUtiVHybjLXhnulKLp8dgDYit7UfpnDPyOl9i_HxIjJ-okpnQzduFeozuddeBTLDcK240eb_lF-gSJ2VmhltwmeSUljk9JK_3_0Mnz77oU9bS62XLlfXP1Rxv6NHBZzMrYVe5KVrel63cnCCYxjx2SVJTRRv2FbvfbZWodDt9VCzS98ESKPPqE"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight">Orders Management</h1>
+<p class="text-on-surface-variant font-medium mt-1">Manage and track your dairy product shipments across the region.</p>
+</div>
+<div class="flex gap-3">
+<div class="bg-surface-container-low flex p-1 rounded-xl">
+<button class="bg-surface-container-lowest shadow-sm px-6 py-2 rounded-lg text-sm font-semibold text-primary">Table View</button>
+<button class="px-6 py-2 rounded-lg text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Grid View</button>
+</div>
+</div>
+</div>
+<!-- Filter & Tabs Bar -->
+<div class="bg-surface-container-low rounded-2xl p-4 mb-8 flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-surface-container-highest pb-4">
+<div class="flex gap-2">
+<!-- Tabs -->
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-bold shadow-md transition-all">Pending (12)</button>
+<button class="px-5 py-2 rounded-full hover:bg-surface-container-highest text-on-surface-variant text-sm font-medium transition-all">Accepted</button>
+<button class="px-5 py-2 rounded-full hover:bg-surface-container-highest text-on-surface-variant text-sm font-medium transition-all">Completed</button>
+<button class="px-5 py-2 rounded-full hover:bg-surface-container-highest text-on-surface-variant text-sm font-medium transition-all">Rejected</button>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg">calendar_today</span>
+<span class="text-xs font-bold uppercase tracking-widest">Date Range</span>
+<select class="bg-transparent border-none text-sm font-semibold text-on-surface focus:ring-0 cursor-pointer">
+<option>Today, 24 Oct</option>
+<option>Yesterday</option>
+<option>Last 7 Days</option>
+</select>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">filter_list</span>
+<span class="text-xs font-bold uppercase tracking-widest">More Filters</span>
+</button>
+</div>
+</div>
+<!-- Stats Ribbon -->
+<div class="grid grid-cols-4 gap-6 px-2">
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Incoming Volume</span>
+<span class="text-2xl font-bold font-headline">₹ 42,850</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Avg. Dispatch</span>
+<span class="text-2xl font-bold font-headline">4.2 Hrs</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Pending Liters</span>
+<span class="text-2xl font-bold font-headline">1,240 L</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Fulfillment Rate</span>
+<span class="text-2xl font-bold font-headline text-primary">98.4%</span>
+</div>
+</div>
+</div>
+<!-- Orders Grid/List -->
+<div class="space-y-4">
+<!-- Order Card 1 -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low transition-all duration-300 rounded-2xl p-6 flex items-center gap-8 shadow-[0_4px_20px_rgba(26,28,28,0.02)]">
+<div class="flex items-center gap-4 min-w-[240px]">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-lg">
+                        RA
+                    </div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Rajesh Agrawal</h3>
+<p class="text-xs text-on-surface-variant font-medium">Customer ID: #44920</p>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-8">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Order Details</span>
+<p class="text-sm font-semibold text-on-surface">ORD-88291-LK</p>
+<p class="text-xs text-on-surface-variant">24 Oct, 2023 • 09:15 AM</p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Items</span>
+<p class="text-sm font-semibold text-on-surface">Milk (20L), Paneer (2kg)</p>
+<p class="text-xs text-on-surface-variant">Total: ₹ 2,450.00</p>
+</div>
+<div class="flex flex-col justify-center">
+<span class="bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit">Pending Approval</span>
+</div>
+</div>
+<div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+                        Accept
+                    </button>
+<button class="bg-error-container/20 hover:bg-error text-error hover:text-on-error px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">cancel</span>
+                        Reject
+                    </button>
+<button class="p-2 text-stone-400 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Order Card 2 -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low transition-all duration-300 rounded-2xl p-6 flex items-center gap-8 shadow-[0_4px_20px_rgba(26,28,28,0.02)]">
+<div class="flex items-center gap-4 min-w-[240px]">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-bold text-lg">
+                        PS
+                    </div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Priya Sharma</h3>
+<p class="text-xs text-on-surface-variant font-medium">Customer ID: #44921</p>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-8">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Order Details</span>
+<p class="text-sm font-semibold text-on-surface">ORD-88292-LK</p>
+<p class="text-xs text-on-surface-variant">24 Oct, 2023 • 08:45 AM</p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Items</span>
+<p class="text-sm font-semibold text-on-surface">A2 Cow Milk (15L)</p>
+<p class="text-xs text-on-surface-variant">Total: ₹ 1,200.00</p>
+</div>
+<div class="flex flex-col justify-center">
+<span class="bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit">Pending Approval</span>
+</div>
+</div>
+<div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+                        Accept
+                    </button>
+<button class="bg-error-container/20 hover:bg-error text-error hover:text-on-error px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">cancel</span>
+                        Reject
+                    </button>
+<button class="p-2 text-stone-400 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Order Card 3 (Bulk Order Variant) -->
+<div class="group relative overflow-hidden bg-surface-container-lowest hover:bg-surface-container-low transition-all duration-300 rounded-2xl p-6 flex items-center gap-8 shadow-[0_4px_20px_rgba(26,28,28,0.02)]">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-center gap-4 min-w-[240px]">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold text-lg">
+                        VH
+                    </div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Vikas Hotels Ltd</h3>
+<p class="text-xs text-on-surface-variant font-medium">B2B Merchant • #90112</p>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-8">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Order Details</span>
+<p class="text-sm font-semibold text-on-surface">ORD-90231-LK</p>
+<p class="text-xs text-on-surface-variant">24 Oct, 2023 • 07:30 AM</p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Bulk Volume</span>
+<p class="text-sm font-bold text-tertiary">Buffalo Milk (250L)</p>
+<p class="text-xs text-on-surface-variant">Total: ₹ 16,250.00</p>
+</div>
+<div class="flex flex-col justify-center">
+<div class="flex items-center gap-2">
+<span class="bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit">Pending Approval</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+                        Accept
+                    </button>
+<button class="bg-error-container/20 hover:bg-error text-error hover:text-on-error px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">cancel</span>
+                        Reject
+                    </button>
+<button class="p-2 text-stone-400 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Order Card 4 -->
+<div class="group bg-surface-container-lowest hover:bg-surface-container-low transition-all duration-300 rounded-2xl p-6 flex items-center gap-8 shadow-[0_4px_20px_rgba(26,28,28,0.02)]">
+<div class="flex items-center gap-4 min-w-[240px]">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold text-lg">
+                        MK
+                    </div>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">Meena Kumari</h3>
+<p class="text-xs text-on-surface-variant font-medium">Customer ID: #44928</p>
+</div>
+</div>
+<div class="flex-1 grid grid-cols-3 gap-8">
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Order Details</span>
+<p class="text-sm font-semibold text-on-surface">ORD-88295-LK</p>
+<p class="text-xs text-on-surface-variant">24 Oct, 2023 • 06:10 AM</p>
+</div>
+<div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-1">Items</span>
+<p class="text-sm font-semibold text-on-surface">Curd (5kg), Ghee (500ml)</p>
+<p class="text-xs text-on-surface-variant">Total: ₹ 1,120.00</p>
+</div>
+<div class="flex flex-col justify-center">
+<span class="bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit">Pending Approval</span>
+</div>
+</div>
+<div class="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+                        Accept
+                    </button>
+<button class="bg-error-container/20 hover:bg-error text-error hover:text-on-error px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">cancel</span>
+                        Reject
+                    </button>
+<button class="p-2 text-stone-400 hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Empty State / Pagination Hint -->
+<div class="mt-12 flex justify-center">
+<button class="bg-surface-container-low text-on-surface-variant px-8 py-3 rounded-xl font-bold text-sm hover:bg-surface-container-high transition-all flex items-center gap-3">
+                Load More Orders
+                <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Floating Action Drawer (Contextual) -->
+<div class="fixed bottom-8 right-8 flex flex-col gap-4">
+<button class="w-14 h-14 bg-surface-container-lowest text-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-all border border-primary/10">
+<span class="material-symbols-outlined text-2xl">print</span>
+</button>
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 transition-all">
+<span class="material-symbols-outlined text-2xl">download</span>
+</button>
+</div>
+<!-- Paste your premium Orders HTML here. Then add this script before </body>. -->
+<script>
+/* =========================
+   ORDERS PAGE FINAL JS
+   Clean + Single Script
+   ========================= */
+function greenToast(msg){
+  const t = document.createElement("div");
+  t.innerText = msg;
+
+  t.style.cssText = `
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#206223;
+    color:#fff;
+    padding:12px 18px;
+    border-radius:12px;
+    z-index:99999;
+    font-weight:600;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+  `;
+
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2200);
+}
+
+/* =========================
+   SEARCH
+   ========================= */
+function enableSearch(){
+  const input=document.querySelector('input[type="text"]');
+  if(!input) return;
+
+  input.addEventListener("input",()=>{
+    const q=input.value.toLowerCase();
+
+    document.querySelectorAll(".space-y-4 > .group").forEach(card=>{
+      card.style.display =
+        card.innerText.toLowerCase().includes(q)
+        ? "flex"
+        : "none";
+    });
+  });
+}
+
+/* =========================
+   PRINT + DOWNLOAD
+   ========================= */
+function enablePrintDownload(){
+  const fab=document.querySelectorAll(".fixed.bottom-8.right-8 button");
+
+  if(fab[0]){
+    fab[0].onclick=()=>window.print();
+  }
+
+  if(fab[1]){
+    fab[1].onclick=()=>{
+      const rows=[...document.querySelectorAll(".space-y-4 > .group")]
+      .map(c=>c.innerText.replace(/\n+/g," | "))
+      .join("\n");
+
+      const blob=new Blob([rows],{type:"text/plain"});
+      const a=document.createElement("a");
+      a.href=URL.createObjectURL(blob);
+      a.download="orders.txt";
+      a.click();
+
+      greenToast("Orders Downloaded");
+    };
+  }
+}
+
+/* =========================
+   ACCEPT / REJECT
+   ========================= */
+function bindOrderButtons(){
+
+document.querySelectorAll("button").forEach(btn=>{
+
+const txt = btn.innerText.toLowerCase();
+
+if(txt.includes("accept")){
+btn.onclick = ()=>{
+btn.closest(".group").remove();
+greenToast("Order Accepted");
+};
+}
+
+if(txt.includes("reject")){
+btn.onclick = ()=>{
+btn.closest(".group").remove();
+greenToast("Order Rejected");
+};
+}
+
+});
+
+}
+
+/* =========================
+   ADD DUMMY ORDER BUTTON
+   ========================= */
+function createDummyButton(){
+
+  const old=document.getElementById("dummyBtn");
+  if(old) old.remove();
+
+  const btn=document.createElement("button");
+  btn.id="dummyBtn";
+  btn.innerText="Add Dummy Order";
+
+  btn.className="fixed top-24 right-8 bg-green-700 text-white px-5 py-3 rounded-xl shadow-xl font-bold z-50";
+
+  btn.onclick=()=>{
+
+    const wrap = document.querySelector("main .space-y-4");
+    if(!wrap) return;
+
+    const card=document.createElement("div");
+
+    card.className="group bg-surface-container-lowest hover:bg-surface-container-low transition-all duration-300 rounded-2xl p-6 flex items-center gap-8 shadow-[0_4px_20px_rgba(26,28,28,0.02)]";
+
+    card.innerHTML=`
+      <div class="flex items-center gap-4 min-w-[240px]">
+        <div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center font-bold text-lg">
+          DU
+        </div>
+        <div>
+          <h3 class="font-bold">Dummy User</h3>
+          <p class="text-xs text-on-surface-variant">Customer ID: #${Math.floor(Math.random()*90000)+10000}</p>
+        </div>
+      </div>
+
+      <div class="flex-1 grid grid-cols-3 gap-8">
+        <div>
+          <span class="text-[10px] font-bold uppercase block mb-1">Order Details</span>
+          <p class="text-sm font-semibold">ORD-${Math.floor(Math.random()*99999)}</p>
+          <p class="text-xs text-on-surface-variant">Today • Demo Order</p>
+        </div>
+
+        <div>
+          <span class="text-[10px] font-bold uppercase block mb-1">Items</span>
+          <p class="text-sm font-semibold">Milk (10L)</p>
+          <p class="text-xs text-on-surface-variant">Total: ₹ 850</p>
+        </div>
+
+        <div class="flex flex-col justify-center">
+          <span class="bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full w-fit">
+            Pending Approval
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button class="bg-primary/10 hover:bg-primary text-primary hover:text-white px-6 py-2 rounded-xl text-sm font-bold">
+          Accept
+        </button>
+
+        <button class="bg-red-100 hover:bg-red-600 text-red-600 hover:text-white px-6 py-2 rounded-xl text-sm font-bold">
+          Reject
+        </button>
+      </div>
+    `;
+
+    wrap.appendChild(card);
+    bindOrderButtons();
+    greenToast("Dummy Order Added");
+
+  };
+
+  document.body.appendChild(btn);
+}
+
+/* =========================
+   TABS FILTER
+   ========================= */
+function enableTabs(){
+
+  document.querySelectorAll("button").forEach(btn=>{
+
+    const txt=btn.innerText.trim();
+
+    if(txt.includes("Pending")){
+      btn.onclick=()=>{
+        document.querySelectorAll(".space-y-4 > .group").forEach(card=>{
+          card.style.display=
+          card.innerText.toLowerCase().includes("pending")
+          ? "flex"
+          : "none";
+        });
+        greenToast("Pending Orders");
+      };
+    }
+
+    if(txt==="Accepted"){
+      btn.onclick=()=>{
+        greenToast("Accepted Orders");
+      };
+    }
+
+    if(txt==="Completed"){
+      btn.onclick=()=>{
+        greenToast("Completed Orders");
+      };
+    }
+
+    if(txt==="Rejected"){
+      btn.onclick=()=>{
+        greenToast("Rejected Orders");
+      };
+    }
+
+  });
+
+}
+
+/* =========================
+   PAGE LOAD
+   ========================= */
+window.addEventListener("load",()=>{
+
+  enableSearch();
+  enablePrintDownload();
+  bindOrderButtons();
+  createDummyButton();
+  enableTabs();
+
+});
+</script>
+
+
+</body></html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile &amp; Business Settings - The Tactile Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b14b6f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2a6b2c",
+                        "secondary": "#4c616c",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-surface-variant": "#40493d",
+                        "tertiary": "#923357",
+                        "surface-container-low": "#f3f3f3",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "primary": "#206223",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#707a6c",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed": "#002203",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "inverse-primary": "#91d78a",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-primary-fixed-variant": "#0c5216",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "background": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed": "#071e27",
+                        "primary-fixed": "#acf4a4",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#cfe6f2",
+                        "on-primary-container": "#cbffc2",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "primary-container": "#3a7b3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar (Execution from JSON) -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto w-64 bg-[#f9f9f9] dark:bg-stone-950 shadow-[24px_0_40px_rgba(26,28,28,0.06)] flex flex-col">
+<div class="p-8">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500">The Tactile Ledger</h1>
+<p class="text-xs font-inter uppercase tracking-wider text-stone-500 mt-1">Aasapure Merchant</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">inventory_2</span>
+<span class="text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">shopping_cart</span>
+<span class="text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">payments</span>
+<span class="text-sm font-medium">Earnings</span>
+</a>
+<a class="flex items-center px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors group" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span>
+<span class="text-sm font-medium">KYC Documents</span>
+</a>
+<!-- Active State Navigation -->
+<a class="flex items-center px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full group" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="text-sm font-bold">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto space-y-1 bg-stone-100 dark:bg-stone-900/50">
+<a class="flex items-center px-4 py-2 text-stone-600 dark:text-stone-400 hover:text-[#206223] transition-colors" href="#">
+<span class="material-symbols-outlined mr-3">help</span>
+<span class="text-sm">Help Center</span>
+</a>
+<a class="flex items-center px-4 py-2 text-error hover:bg-error-container/20 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined mr-3">logout</span>
+<span class="text-sm font-bold">Logout</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar (Execution from JSON) -->
+<header class="flex justify-between items-center w-full px-8 py-4 ml-64 max-w-[calc(100%-16rem)] sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl bg-stone-100 dark:bg-stone-900 tonal transition">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-stone-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-xl text-sm focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-8">
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-primary transition-colors">history</span>
+<div class="flex items-center gap-3 px-4 py-1.5 bg-primary-fixed rounded-full text-on-primary-fixed-variant text-xs font-bold uppercase tracking-wider">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Merchant Verified
+            </div>
+<img alt="Merchant profile" class="w-10 h-10 rounded-full object-cover shadow-sm ring-2 ring-surface-container" data-alt="professional portrait of a confident indian male dairy entrepreneur in a clean business-casual outfit with a modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfs3Fh37it57Beve1QSFWVFl5-xQTIfmtCQvsCt0VB6VvZrcaBIL9F6exw87nSNIzhgCzE6r-hV2-TAvMA-55oSb6RbS8H43QsIgTgQ0Yb0w24afItizB4WH0Qa-vAm92fQ9CR30x-FcYYy3v0Yj-PLnsSKwBIVZCzYPYd3kj6nlq7U4ubbOag4Hmtef6XZBRw43pw4pijRUuTnE40-Pv5YU1OhPMbC6UNjvtDa4Jw3b1zrCksUiv8RAdZ-T4hRcCDfjsOQEJVPJo"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-12 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Hero Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h2 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Merchant Profile</h2>
+<p class="text-on-surface-variant font-medium">Manage your digital identity and operational business data.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-3 bg-surface-container-high text-primary font-bold rounded-xl flex items-center gap-2 hover:bg-surface-container-highest transition-all duration-300">
+<span class="material-symbols-outlined">share</span>
+                        Share Profile
+                    </button>
+<button class="px-8 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg shadow-primary/10 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        Save Changes
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Profile & Merchant Info (Large Bento Box) -->
+<div class="md:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.06)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-110 duration-700"></div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-8 items-start">
+<div class="relative">
+<img alt="Merchant Avatar" class="w-32 h-32 rounded-xl object-cover ring-4 ring-surface-container-low" data-alt="close-up headshot of a friendly business owner with soft natural lighting and warm skin tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCrvMQE0xG38_F3TlslD_zaumHH6ps9eHKrta5cOXKMQl8xASR8L78fXqlZjMKyExbdlUrDeRfkJYpTfB-Ch1X9L1gnBQvDHtD1yD6qv8DbtgdCcsEHL-CkOQZ-aQP-mfLklgZ-ot4OQxAyXxJ8rk9zgm1lqAgTO-JIbebijUvvjAzZColqXMQ7ahso4dmGckSqgeL0aHvIo2YXVYPsDGGnjZ8qPvBt4FYNg2Wz2H22AfRuDRyNfv6J4Fe4nh3CIvJxnCMN1AR2ZM"/>
+<button class="absolute -bottom-2 -right-2 bg-primary p-2 rounded-full text-white shadow-lg border-4 border-surface-container-lowest">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</button>
+</div>
+<div class="flex-1 space-y-6 w-full">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Full Name</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-3 font-medium focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="Arjun Deshmukh"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Merchant ID</label>
+<div class="w-full bg-surface-container p-3 rounded-lg font-mono text-sm text-stone-500 flex justify-between items-center">
+                                        ML-AS-4492-X
+                                        <span class="material-symbols-outlined text-xs cursor-pointer">content_copy</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Email Address</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-3 font-medium focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" type="email" value="arjun@aasapure.com"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Phone Number</label>
+<input class="w-full bg-surface-container-high border-none rounded-lg p-3 font-medium focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="+91 98765-43210"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- KYC Status Badge Card -->
+<div class="md:col-span-4 bg-primary-container p-8 rounded-xl text-on-primary-container flex flex-col justify-between relative overflow-hidden">
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="bg-primary/20 text-[0.65rem] font-black uppercase tracking-widest px-2 py-1 rounded-full">Active Status</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">KYC Verified</h3>
+<p class="text-sm opacity-90 leading-relaxed">Your business identity has been verified. You have full access to settlements and payouts.</p>
+</div>
+<div class="mt-8 relative z-10">
+<button class="w-full py-3 bg-on-primary-container text-primary font-bold rounded-lg text-sm hover:opacity-90 transition-opacity">
+                            View Certificates
+                        </button>
+</div>
+<div class="absolute -bottom-8 -right-8 text-primary opacity-10">
+<span class="material-symbols-outlined text-[10rem]">workspace_premium</span>
+</div>
+</div>
+<!-- Business Details (Asymmetric Card) -->
+<div class="md:col-span-7 bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-1.5 h-6 bg-tertiary rounded-full"></div>
+<h3 class="text-xl font-bold">Business Operations</h3>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="flex flex-col sm:flex-row gap-6">
+<div class="flex-1 space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Farm / Business Name</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 font-medium focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="Aasapure Dairy Solutions"/>
+</div>
+<div class="flex-1 space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Establishment Year</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-3 font-medium focus:ring-2 focus:ring-primary/20 transition-all" type="text" value="2018"/>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Service Area (Geography)</label>
+<div class="flex flex-wrap gap-2 p-3 bg-surface-container-lowest rounded-lg">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                                    Pune <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                                    Satara <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                                    Sangli <span class="material-symbols-outlined text-xs">close</span>
+</span>
+<button class="text-primary text-xs font-bold px-3 py-1">+ Add Area</button>
+</div>
+</div>
+<div class="space-y-1.5">
+<label class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest px-1">Business Description</label>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-lg p-3 font-medium text-sm focus:ring-2 focus:ring-primary/20 transition-all resize-none" rows="3">Premium A2 milk producer and aggregator specializing in organic logistics across Western Maharashtra.</textarea>
+</div>
+</div>
+</div>
+<!-- Quick Actions & Security -->
+<div class="md:col-span-5 space-y-8">
+<!-- Bank Details Hook -->
+<div class="bg-white p-6 rounded-xl shadow-sm border border-outline-variant/15 group hover:border-primary/30 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container p-3 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<h4 class="font-bold">Bank Details</h4>
+<p class="text-xs text-on-surface-variant">Manage your settlement account</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-stone-300 group-hover:text-primary transition-colors">chevron_right</span>
+</div>
+</div>
+<!-- Security / Contact Card -->
+<div class="bg-surface-container-high p-8 rounded-xl">
+<h4 class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-widest mb-4">Contact Verification</h4>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">mail</span>
+<span class="text-sm font-medium">Secondary Email</span>
+</div>
+<span class="text-xs font-bold text-tertiary">Add Now</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-lowest rounded-lg opacity-75">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm">call</span>
+<span class="text-sm font-medium">Backup Number</span>
+</div>
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<button class="w-full text-center text-sm font-bold text-error hover:underline transition-all">
+                                Request Account Deactivation
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<div class="mt-16 flex justify-between items-center border-t border-outline-variant/10 pt-8">
+<p class="text-xs text-stone-400">The Tactile Ledger v4.2.0 • Last updated: 12 Jan, 2024</p>
+<div class="flex gap-6">
+<a class="text-xs font-bold text-stone-500 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-bold text-stone-500 hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</main>
+</body></html>

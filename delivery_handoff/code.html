@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Delivery Handoff | Asha Pure Merchant</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e8e8e8",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#b14b6f",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#2a6b2c",
+                        "secondary": "#4c616c",
+                        "secondary-fixed": "#cfe6f2",
+                        "on-surface-variant": "#40493d",
+                        "tertiary": "#923357",
+                        "surface-container-low": "#f3f3f3",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1a1c1c",
+                        "primary": "#206223",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#707a6c",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "error": "#ba1a1a",
+                        "surface": "#f9f9f9",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed": "#002203",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "inverse-on-surface": "#f1f1f1",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#526772",
+                        "inverse-primary": "#91d78a",
+                        "surface-container": "#eeeeee",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-primary-fixed-variant": "#0c5216",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "background": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed": "#071e27",
+                        "primary-fixed": "#acf4a4",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "on-surface": "#1a1c1c",
+                        "secondary-container": "#cfe6f2",
+                        "on-primary-container": "#cbffc2",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "primary-container": "#3a7b3a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .hero-metric { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-background antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full z-40 overflow-y-auto bg-[#f9f9f9] dark:bg-stone-950 h-screen w-64 border-r-0 flex flex-col shadow-[24px_0_40px_rgba(26,28,28,0.06)]">
+<div class="p-8">
+<h1 class="text-2xl font-black text-[#206223] dark:text-green-500">Asha Pure Merchant</h1>
+<p class="text-xs font-inter font-medium text-stone-500 mt-1 uppercase tracking-wider">Asha Pure Merchant</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-inter text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-inter text-sm font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-stone-200 dark:bg-stone-800 text-[#206223] dark:text-green-400 font-bold rounded-r-full" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-inter text-sm font-medium">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-inter text-sm font-medium">Earnings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-inter text-sm font-medium">KYC Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-[#206223] dark:hover:text-green-400 transition-colors hover:bg-stone-100 dark:hover:bg-stone-900 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-inter text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-6 mt-auto bg-stone-100 dark:bg-stone-900/50">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Merchant profile picture" class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="close-up portrait of a professional indian business owner in a clean office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvPCQnrB1Kj1L9Q38ai6L1_wnOkS-2czBMeCVs92vN79qMLoB8ldC493_4amePfSXW72GFd9246ZhhU2nuUudLPg5xOsPxBm9ENQ1-cKWojBzk_24SDvjg7oNBCLkVb5yAV2TqNvn0mCwtW81GAj3vJNt9oIM6aJqlbOs2susSdM_ckg0Uq8HyXaxk787PbIX-Ihqowdjla3mvqhvdN_M5UmU9b0zo_rh6XSre5x2GcsS_fhYRlsKDiSDzadSYg9ZlHPwCgOoNsiw"/>
+<div>
+<p class="text-sm font-bold font-manrope text-on-surface">Rajesh Kumar</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant">Merchant ID: #7721</p>
+</div>
+</div>
+<div class="space-y-1">
+<button class="w-full flex items-center gap-3 px-2 py-2 text-stone-600 text-sm font-medium hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">help</span>
+                    Help Center
+                </button>
+<button class="w-full flex items-center gap-3 px-2 py-2 text-stone-600 text-sm font-medium hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm">logout</span>
+                    Logout
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 py-4 sticky top-0 z-50 bg-[#f9f9f9]/80 dark:bg-stone-950/80 backdrop-blur-xl bg-stone-100 dark:bg-stone-900 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute inset-y-0 left-3 flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-highest border-none rounded-xl text-sm w-80 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search route or driver..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-outline-variant pr-6">
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-full transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-full transition-all">
+<span class="material-symbols-outlined">history</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Merchant Verified</span>
+<img alt="Merchant Profile Image" class="w-8 h-8 rounded-lg" data-alt="professional company logo of a dairy distribution brand using green and white colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsb6gwHC3Afr5jcvFuBB48T91V-WDXhI6DZrMCp1Asu1e_nY7FbtxJht94e9FgDzv6PgsLgqTPGTrp6NuactITM4626PA98pwsANurtDw9rWFaCSq7Wuig1raT1Faceo5kcNZjkwlPx_pZL3LuqCqUvIjlD-HGxXUgtepTM2wHXuqAO-dlYDv8RM1DLv56A6ERIhHQH72QP32Cbh6lDeSm5sc2rV41wU5TVQ9BAw8cD0cKwa0JmtdxFpbbwR5V7NRjSuzu7AC3jW4"/>
+</div>
+</div>
+</header>
+<!-- Content -->
+<div class="p-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-10 flex justify-between items-end">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface mb-2">Delivery Handoff</h2>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                        24 Oct, 2023 • Route Alpha-09
+                    </p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-primary font-bold rounded-xl hover:bg-surface-container-highest transition-all">
+                        Download Manifest
+                    </button>
+<button class="px-6 py-2.5 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 scale-100 hover:scale-[1.02] active:scale-95 transition-all">
+                        Dispatch All Ready
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Active Route Details -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Route Progress Visualizer -->
+<div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-xs uppercase tracking-[0.2em] font-bold text-on-surface-variant mb-6">Real-Time Route Summary</h3>
+<div class="flex items-center justify-between">
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold ring-4 ring-primary/10">1</div>
+<span class="text-[10px] font-bold text-on-surface">Warehouse</span>
+</div>
+<div class="flex-1 h-0.5 bg-primary mx-4 relative">
+<div class="absolute -top-1 left-1/2 w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold ring-4 ring-primary/10">2</div>
+<span class="text-[10px] font-bold text-on-surface">Station B</span>
+</div>
+<div class="flex-1 h-0.5 bg-surface-container-highest mx-4"></div>
+<div class="flex flex-col items-center gap-2 opacity-50">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-bold">3</div>
+<span class="text-[10px] font-bold text-on-surface">City Hub</span>
+</div>
+<div class="flex-1 h-0.5 bg-surface-container-highest mx-4"></div>
+<div class="flex flex-col items-center gap-2 opacity-50">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-on-surface font-bold">4</div>
+<span class="text-[10px] font-bold text-on-surface">Finish</span>
+</div>
+</div>
+</div>
+<!-- Background Texture -->
+<div class="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+</div>
+<!-- Pickup List -->
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/10 flex justify-between items-center">
+<h3 class="font-bold font-manrope text-lg">Assigned Pickups (06)</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-[10px] font-semibold">Filter: All</span>
+</div>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<!-- Pickup Item 1 -->
+<div class="p-6 flex items-center gap-6 hover:bg-surface-container hover:px-8 transition-all duration-300">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">inventory</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-bold text-on-surface">Package #PK-9921</h4>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-0.5 rounded-full text-[10px] font-bold">Ready for Pickup</span>
+</div>
+<p class="text-sm text-on-surface-variant">Aasapure Whole Milk (24L) • Bulk Order</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter mb-1">Weight</p>
+<p class="font-manrope font-bold text-on-surface">24.2 kg</p>
+</div>
+<button class="ml-4 p-2 rounded-lg hover:bg-primary/10 text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Pickup Item 2 -->
+<div class="p-6 flex items-center gap-6 hover:bg-surface-container hover:px-8 transition-all duration-300">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-tertiary">package_2</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-bold text-on-surface">Package #PK-9844</h4>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-0.5 rounded-full text-[10px] font-bold">Handed Over</span>
+</div>
+<p class="text-sm text-on-surface-variant">Assorted Paneer &amp; Curd Pack • Express</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter mb-1">Weight</p>
+<p class="font-manrope font-bold text-on-surface">12.5 kg</p>
+</div>
+<button class="ml-4 p-2 rounded-lg hover:bg-primary/10 text-primary transition-all">
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+</div>
+<!-- Pickup Item 3 -->
+<div class="p-6 flex items-center gap-6 hover:bg-surface-container hover:px-8 transition-all duration-300">
+<div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary">inventory</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-bold text-on-surface">Package #PK-9912</h4>
+<span class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-0.5 rounded-full text-[10px] font-bold">Ready for Pickup</span>
+</div>
+<p class="text-sm text-on-surface-variant">Skimmed Milk Cartons (12L)</p>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter mb-1">Weight</p>
+<p class="font-manrope font-bold text-on-surface">12.1 kg</p>
+</div>
+<button class="ml-4 p-2 rounded-lg hover:bg-primary/10 text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Info Panel -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Delivery Partner Card -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[24px_0_40px_rgba(26,28,28,0.06)] relative overflow-hidden">
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/5 rounded-full"></div>
+<h3 class="text-xs uppercase tracking-widest font-bold text-on-surface-variant mb-4">Assigned Partner</h3>
+<div class="flex items-center gap-4 mb-6">
+<img alt="Partner Avatar" class="w-14 h-14 rounded-full ring-2 ring-primary/10" data-alt="professional portrait of a delivery driver in a clean uniform with a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQbWoCbcEgZCuuJK9QUDGMIZD03ctpULsUuX40xT4HTjZ9pJAES-OGhfZtbCOqjxjM6HgcvILSvp1FCQKGCmZZqKEeuiVqVHAFUwj2l887l0GfVIon11WK47uJRxvrvL6uNTpr6dd9kgARrobAUu61LdapoKkusfPcL3DFKmkwVDv0Yrc7Df7PgH8lzxZ5O05MF-ewA-hBljxecRbTh1LfBkfuO9tAfRQRDaXivRGOUU9kDzb36O7D6LVPs0CaR9PrFRR0ZTm6SfU"/>
+<div>
+<p class="font-manrope font-extrabold text-lg text-on-surface">Arjun Mehra</p>
+<p class="text-sm text-on-surface-variant">Vehicle: PB-08-AX-9921</p>
+</div>
+</div>
+<div class="space-y-3">
+<a class="flex items-center justify-between p-3 bg-surface-container rounded-lg group hover:bg-primary transition-all" href="tel:+919888877777">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary group-hover:text-white">call</span>
+<span class="text-sm font-bold group-hover:text-white">+91 98888-77777</span>
+</div>
+<span class="material-symbols-outlined text-xs group-hover:text-white">open_in_new</span>
+</a>
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="text-sm font-bold">Platinum Partner</span>
+</div>
+</div>
+</div>
+<!-- Text Route Sequence Summary -->
+<div class="bg-primary p-8 rounded-xl text-on-primary shadow-xl">
+<div class="flex items-center gap-2 mb-6 opacity-80">
+<span class="material-symbols-outlined">route</span>
+<span class="text-xs uppercase tracking-widest font-bold">Route Sequence</span>
+</div>
+<ul class="space-y-6 relative before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-white/20">
+<li class="pl-8 relative">
+<div class="absolute left-0 top-1 w-6 h-6 bg-white rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+</div>
+<p class="text-xs font-bold uppercase opacity-60 mb-0.5">Start • 08:30 AM</p>
+<p class="font-manrope font-bold">Main Warehouse Hub</p>
+</li>
+<li class="pl-8 relative">
+<div class="absolute left-0 top-1 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+<p class="text-xs font-bold uppercase opacity-60 mb-0.5">Handoff 1 • 09:15 AM</p>
+<p class="font-manrope font-bold">Sector 14 Distribution Point</p>
+</li>
+<li class="pl-8 relative">
+<div class="absolute left-0 top-1 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+<p class="text-xs font-bold uppercase opacity-60 mb-0.5">Handoff 2 • 10:45 AM</p>
+<p class="font-manrope font-bold">Model Town Central Market</p>
+</li>
+<li class="pl-8 relative">
+<div class="absolute left-0 top-1 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-white rounded-full"></div>
+</div>
+<p class="text-xs font-bold uppercase opacity-60 mb-0.5">Final • 12:00 PM</p>
+<p class="font-manrope font-bold">Civil Lines Storage Facility</p>
+</li>
+</ul>
+</div>
+<!-- Statistics Card -->
+<div class="bg-surface-container-high p-6 rounded-xl flex flex-col items-center justify-center text-center">
+<p class="text-xs uppercase tracking-widest font-bold text-on-surface-variant mb-2">Payload Volume</p>
+<div class="hero-metric text-4xl font-extrabold text-primary mb-1">82%</div>
+<p class="text-sm text-on-surface-variant">Vehicle capacity utilized</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav for Mobile Suppression is active per hierarchy -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface/90 backdrop-blur-xl border-t border-outline-variant/10 flex justify-around py-4 z-50">
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] mt-1 font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center text-primary">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] mt-1 font-bold">Orders</span>
+</button>
+<button class="flex flex-col items-center text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] mt-1 font-bold">Settings</span>
+</button>
+</nav>
+</body></html>
